@@ -131,7 +131,13 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     const email = e.target.elements[1].value;
     const age = e.target.elements[2].value;
     const experience = e.target.querySelector('input[name="experience"]:checked').value;
-    const password = e.target.elements[4].value;
+    const password = e.target.querySelector('input[type="password"]').value;
+    
+    // Add debugging logs
+    console.log('Signup attempt with:');
+    console.log('Password length:', password.length);
+    console.log('Password value:', password);
+    console.log('Password characters:', Array.from(password).map(c => c.charCodeAt(0)));
     
     // Clear previous error
     const errorElement = document.getElementById('signup-error');
@@ -152,13 +158,15 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     try {
         const user = await signUp(email, password, name);
         // Store additional user data in Firestore
-        await setDoc(doc(db, "users", user.uid), {
+        const userData = {
             name: name,
             email: email,
-            age: age,
+            age: parseInt(age, 10),
             experience: experience,
             createdAt: new Date()
-        });
+        };
+        await setDoc(doc(db, "users", user.uid), userData);
+        console.log("User data saved:", userData);
         hideModal('signup');
         e.target.reset();
         // Redirect to user dashboard
@@ -185,6 +193,10 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const email = e.target.elements[0].value;
     const password = e.target.elements[1].value;
     
+    // Add debugging logs
+    console.log('Password length:', password.length);
+    console.log('Password value:', password);
+    
     // Clear previous error
     const errorElement = document.getElementById('login-error');
     errorElement.textContent = '';
@@ -197,6 +209,8 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         window.location.href = 'user.html';
     } catch (error) {
         console.error('Login error:', error);
+        console.log('Error code:', error.code);
+        console.log('Error message:', error.message);
         // Display user-friendly error message
         if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
             errorElement.textContent = 'Invalid email or password.';

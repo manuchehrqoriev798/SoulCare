@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
 
@@ -21,6 +21,17 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
+
+// Enable offline persistence
+enableIndexedDbPersistence(db).catch((err) => {
+    if (err.code == 'failed-precondition') {
+        // Multiple tabs open, persistence can only be enabled in one tab at a time.
+        console.log('Multiple tabs open, persistence can only be enabled in one tab at a time.');
+    } else if (err.code == 'unimplemented') {
+        // The current browser does not support persistence
+        console.log('The current browser does not support persistence');
+    }
+});
 
 // Export auth, db, and analytics for use in other files
 export { auth, db, analytics }; 

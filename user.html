@@ -276,7 +276,6 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 id="user-name">Loading...</h3>
-                        <p id="user-email">Loading...</p>
                     </div>
                     <ul class="sidebar-menu">
                         <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
@@ -301,7 +300,26 @@
                         <p><strong>Name:</strong> <span id="profile-name">Loading...</span></p>
                         <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
                         <p><strong>Age:</strong> <span id="profile-age">Loading...</span></p>
-                        <p><strong>Experience with psychologists:</strong> <span id="profile-experience">Loading...</span></p>
+                        <p><strong>Experience:</strong> <span id="profile-experience">Loading...</span></p>
+                        <button id="edit-profile-btn" class="btn btn-primary">Edit Profile</button>
+                        
+                        <!-- Edit Profile Form (Initially Hidden) -->
+                        <form id="edit-profile-form" style="display: none; margin-top: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <label for="edit-name">Name:</label>
+                                <input type="text" id="edit-name" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="edit-age">Age:</label>
+                                <input type="number" id="edit-age" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="edit-experience">Experience:</label>
+                                <input type="text" id="edit-experience" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="button" id="cancel-edit" class="btn btn-outline">Cancel</button>
+                        </form>
                     </div>
 
                     <div class="quick-stats">
@@ -394,7 +412,7 @@
     <script type="module">
         import { auth, db } from './firebase-config.js';
         import { logOut } from './auth.js';
-        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         document.addEventListener('DOMContentLoaded', function() {
             const userName = document.getElementById('user-name');
@@ -402,12 +420,18 @@
             const welcomeName = document.getElementById('welcome-name');
             const profileName = document.getElementById('profile-name');
             const profileEmail = document.getElementById('profile-email');
-            const profileAge = document.getElementById('profile-age');
-            const profileExperience = document.getElementById('profile-experience');
             const logoutBtn = document.getElementById('logout-btn');
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const sidebar = document.querySelector('.sidebar');
             const navLinks = document.querySelector('.nav-links');
+
+            // Add offline status indicator
+            const profileSection = document.querySelector('.user-profile');
+            const offlineIndicator = document.createElement('div');
+            offlineIndicator.className = 'offline-indicator';
+            offlineIndicator.style.display = 'none';
+            offlineIndicator.innerHTML = '<i class="fas fa-wifi-slash"></i> You are offline. Some features may be limited.';
+            profileSection.insertBefore(offlineIndicator, profileSection.firstChild);
 
             // Check authentication state
             auth.onAuthStateChanged(async function(user) {
@@ -419,18 +443,64 @@
                     
                     // Get additional user data from Firestore
                     try {
+                        // Check if we're online
+                        if (!navigator.onLine) {
+                            offlineIndicator.style.display = 'block';
+                            profileName.textContent = 'Offline - Please check your internet connection';
+                            profileEmail.textContent = user.email || 'Offline';
+                            return;
+                        }
+                        
                         const userDoc = await getDoc(doc(db, "users", user.uid));
+                        console.log("Checking Firestore for user ID:", user.uid);
+                        
                         if (userDoc.exists()) {
                             const userData = userDoc.data();
+                            console.log("User data from Firestore:", userData);
+                            
+                            // Update all profile fields with user data
                             profileName.textContent = userData.name || 'Not provided';
                             profileEmail.textContent = userData.email || user.email;
                             profileAge.textContent = userData.age || 'Not provided';
-                            profileExperience.textContent = userData.experience === 'yes' ? 'Yes' : 'No';
+                            profileExperience.textContent = userData.experience || 'Not provided';
+                            
+                            // Update header name displays
+                            userName.textContent = userData.name || 'User';
+                            welcomeName.textContent = userData.name || 'User';
+                            
+                            offlineIndicator.style.display = 'none';
                         } else {
-                            console.log("No user data found in Firestore");
+                            console.log("No user data found in Firestore for ID:", user.uid);
+                            // Create new user document if it doesn't exist
+                            try {
+                                const userData = {
+                                    name: user.displayName || 'Not provided',
+                                    email: user.email,
+                                    createdAt: new Date()
+                                };
+                                await setDoc(doc(db, "users", user.uid), userData);
+                                console.log("Created new user document in Firestore:", userData);
+                                
+                                // Update display with the new data
+                                profileName.textContent = userData.name;
+                                profileEmail.textContent = userData.email;
+                            } catch (error) {
+                                console.error("Error creating user document:", error);
+                                // Set default values if creation fails
+                                profileName.textContent = user.displayName || 'Not provided';
+                                profileEmail.textContent = user.email;
+                            }
                         }
                     } catch (error) {
                         console.error("Error getting user data:", error);
+                        if (error.code === 'unavailable' || error.message.includes('offline')) {
+                            offlineIndicator.style.display = 'block';
+                            profileName.textContent = 'Offline - Please check your internet connection';
+                            profileEmail.textContent = user.email || 'Offline';
+                        } else {
+                            profileName.textContent = 'Error loading data';
+                            profileEmail.textContent = user.email || 'Error';
+                        }
                     }
                 } else {
                     // User is signed out, redirect to index page
@@ -458,6 +528,67 @@
                 if (!e.target.closest('.sidebar') && !e.target.closest('.mobile-menu-btn')) {
                     sidebar.classList.remove('active');
                     navLinks.classList.remove('active');
+                }
+            });
+
+            // Edit Profile Button Click Handler
+            const editProfileBtn = document.getElementById('edit-profile-btn');
+            const editProfileForm = document.getElementById('edit-profile-form');
+            const cancelEditBtn = document.getElementById('cancel-edit');
+            const editNameInput = document.getElementById('edit-name');
+            const editAgeInput = document.getElementById('edit-age');
+            const editExperienceInput = document.getElementById('edit-experience');
+            const profileAge = document.getElementById('profile-age');
+            const profileExperience = document.getElementById('profile-experience');
+
+            editProfileBtn.addEventListener('click', function() {
+                const currentName = profileName.textContent;
+                const currentAge = profileAge.textContent;
+                const currentExperience = profileExperience.textContent;
+
+                editNameInput.value = currentName === 'Not provided' ? '' : currentName;
+                editAgeInput.value = currentAge === 'Not provided' ? '' : currentAge;
+                editExperienceInput.value = currentExperience === 'Not provided' ? '' : currentExperience;
+
+                editProfileForm.style.display = 'block';
+                editProfileBtn.style.display = 'none';
+            });
+
+            // Cancel Edit Button Click Handler
+            cancelEditBtn.addEventListener('click', function() {
+                editProfileForm.style.display = 'none';
+                editProfileBtn.style.display = 'block';
+            });
+
+            // Edit Profile Form Submit Handler
+            editProfileForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const user = auth.currentUser;
+                if (!user) return;
+
+                try {
+                    const updatedData = {
+                        name: editNameInput.value,
+                        age: parseInt(editAgeInput.value, 10),
+                        experience: editExperienceInput.value
+                    };
+
+                    await updateDoc(doc(db, "users", user.uid), updatedData);
+                    console.log("Profile updated successfully:", updatedData);
+                    
+                    // Update display
+                    profileName.textContent = updatedData.name;
+                    profileAge.textContent = updatedData.age;
+                    profileExperience.textContent = updatedData.experience;
+                    profileEmail.textContent = user.email;
+
+                    // Hide form
+                    editProfileForm.style.display = 'none';
+                    editProfileBtn.style.display = 'block';
+                } catch (error) {
+                    console.error("Error updating profile:", error);
+                    alert("Error updating profile. Please try again.");
                 }
             });
         });
