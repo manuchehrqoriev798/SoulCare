@@ -44,10 +44,10 @@
         <nav class="container">
             <a href="#" class="logo"><img src="img/logo.png" alt="SoulCare Logo" class="logo-img">SoulCare</a>
             <ul class="nav-links">
-                <li><a href="#services">Our Services</a></li>
-                <li><a href="#psychologists">Find a Psychologist</a></li>
-                <li><a href="#mental-health">Mental Health Resources</a></li>
-                <li><a href="#assessments">Assessments</a></li>
+                <li><a href="index.html#services">Our Services</a></li>
+                <li><a href="index.html#psychologists">Find a Psychologist</a></li>
+                <li><a href="index.html#mental-health">Mental Health Resources</a></li>
+                <li><a href="index.html#assessments">Assessments</a></li>
                 <li><a href="games.html">Wellness Games</a></li>
                 <li><a href="#book-session" class="btn btn-primary">Book a Session</a></li>
                 <!-- Auth buttons will be injected by auth.js -->
@@ -215,30 +215,223 @@
     <section id="mental-health" class="mental-health scroll-reveal">
         <div class="container">
             <h2>Mental Health Resources</h2>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <i class="fas fa-book-reader"></i>
-                    <h3>Self-Help Library</h3>
-                    <p>Access our collection of articles, guides, and worksheets.</p>
-                    <a href="#library" class="btn btn-outline">Explore</a>
+            <p class="section-subtitle">Curated tools and knowledge to support your wellness journey</p>
+            
+            <!-- Resource Navigation Tabs -->
+            <div class="resources-tabs">
+                <div class="resource-tab active" data-tab="main">Main Resources</div>
+                <div class="resource-tab" data-tab="videos">Videos</div>
+                <div class="resource-tab" data-tab="books">Books</div>
+                <div class="resource-tab" data-tab="articles">Articles</div>
+            </div>
+            
+            <!-- Main Resources Tab Content -->
+            <div class="resources-content active" id="main-content">
+                <div class="resources-main-grid">
+                    <div class="resource-featured-card">
+                        <i class="fas fa-robot resource-icon"></i>
+                        <h3>AI Wellness Assistant</h3>
+                        <p>Get 24/7 support and guidance from our AI wellness chatbot. Ask questions, receive personalized recommendations, and practice guided meditations.</p>
+                        <a href="#" class="btn btn-primary open-chatbot">Chat Now</a>
+                    </div>
+                    <div class="resource-featured-card">
+                        <i class="fas fa-book-open resource-icon"></i>
+                        <h3>Digital Library</h3>
+                        <p>Access our comprehensive collection of books, workbooks, and self-help guides curated by mental health experts.</p>
+                        <a href="#books" class="btn btn-primary">Browse Library</a>
+                    </div>
+                    <div class="resource-featured-card">
+                        <i class="fas fa-hands-helping resource-icon"></i>
+                        <h3>Crisis Support</h3>
+                        <p>Immediate resources and emergency contacts for those in need of urgent mental health support.</p>
+                        <a href="#crisis" class="btn btn-outline btn-urgent">Get Help Now</a>
+                    </div>
                 </div>
-                <div class="resource-card">
-                    <i class="fas fa-video"></i>
-                    <h3>Educational Videos</h3>
-                    <p>Watch expert talks on various mental health topics.</p>
-                    <a href="#videos" class="btn btn-outline">Watch</a>
+            </div>
+            
+            <!-- Videos Tab Content -->
+            <div class="resources-content" id="videos-content">
+                <div class="videos-grid">
+                    <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=ZJy1ajvMU1k', '_blank')" style="cursor: pointer;">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/ZJy1ajvMU1k/maxresdefault.jpg" alt="Psychology of Depression">
+                            <div class="play-button"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="video-details">
+                            <h4>Understanding Depression: A Deep Dive</h4>
+                            <p class="video-author">Dr. Andrew Huberman</p>
+                            <p class="video-duration">18:32</p>
+                            <p class="video-desc">Learn about the neuroscience of depression and evidence-based treatments.</p>
+                            <a href="https://www.youtube.com/watch?v=ZJy1ajvMU1k" class="btn btn-sm btn-outline" target="_blank" onclick="event.stopPropagation()">Watch Now</a>
+                        </div>
+                    </div>
+
+                    <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=rqoxYKtEWEc', '_blank')" style="cursor: pointer;">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/rqoxYKtEWEc/maxresdefault.jpg" alt="Mindfulness Meditation">
+                            <div class="play-button"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="video-details">
+                            <h4>10-Minute Mindfulness Meditation</h4>
+                            <p class="video-author">Dr. Sarah Williams</p>
+                            <p class="video-duration">10:00</p>
+                            <p class="video-desc">A guided meditation session for stress relief and mental clarity.</p>
+                            <a href="https://www.youtube.com/watch?v=rqoxYKtEWEc" class="btn btn-sm btn-outline" target="_blank" onclick="event.stopPropagation()">Watch Now</a>
+                        </div>
+                    </div>
+
+                    <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=DxIDKZHW3-E', '_blank')" style="cursor: pointer;">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/DxIDKZHW3-E/maxresdefault.jpg" alt="Anxiety Management">
+                            <div class="play-button"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="video-details">
+                            <h4>Practical Tools for Managing Anxiety</h4>
+                            <p class="video-author">Dr. Elena Martinez</p>
+                            <p class="video-duration">15:45</p>
+                            <p class="video-desc">Simple techniques to manage anxiety in daily life.</p>
+                            <a href="https://www.youtube.com/watch?v=DxIDKZHW3-E" class="btn btn-sm btn-outline" target="_blank" onclick="event.stopPropagation()">Watch Now</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="resource-card">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Wellness Tools</h3>
-                    <p>Interactive tools for tracking mood and mental wellness.</p>
-                    <a href="#tools" class="btn btn-outline">Try Now</a>
+                <div class="view-all-container">
+                    <a href="html/videos.html" class="btn btn-primary">View All Videos</a>
                 </div>
-                <div class="resource-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Crisis Support</h3>
-                    <p>24/7 support resources and emergency contacts.</p>
-                    <a href="#crisis" class="btn btn-outline">Get Help</a>
+            </div>
+            
+            <!-- Books Tab Content -->
+            <div class="resources-content" id="books-content">
+                <div class="books-grid">
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <div class="placeholder-image" style="background: var(--mint-600); height: 200px;">
+                                <div class="book-title">
+                                    <i class="fas fa-book-open"></i>
+                                    <h3>Atomic Habits</h3>
+                                    <p>James Clear</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h4>Atomic Habits</h4>
+                            <p class="book-author">James Clear</p>
+                            <p class="book-desc">An easy and proven way to build good habits and break bad ones.</p>
+                            <a href="book/Atomic habits ( PDFDrive ).pdf" class="btn btn-sm btn-outline">Read Now</a>
+                        </div>
+                    </div>
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <div class="placeholder-image" style="background: var(--mint-700); height: 200px;">
+                                <div class="book-title">
+                                    <i class="fas fa-brain"></i>
+                                    <h3>The Interpretation of Dreams</h3>
+                                    <p>Sigmund Freud</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h4>The Interpretation of Dreams</h4>
+                            <p class="book-author">Sigmund Freud</p>
+                            <p class="book-desc">The groundbreaking work on understanding dreams and the unconscious mind.</p>
+                            <a href="book/The Interpretation of Dreams, Sigmund Freud.pdf" class="btn btn-sm btn-outline">Read Now</a>
+                        </div>
+                    </div>
+
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <div class="placeholder-image" style="background: var(--mint-800); height: 200px;">
+                                <div class="book-title">
+                                    <i class="fas fa-head-side-brain"></i>
+                                    <h3>Introduction to Psychology</h3>
+                                    <p>LibreTexts</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h4>Introduction to Psychology</h4>
+                            <p class="book-author">LibreTexts</p>
+                            <p class="book-desc">A comprehensive guide to understanding human behavior and mental processes.</p>
+                            <a href="book/Introduction to Psychology, LibreTexts.pdf" class="btn btn-sm btn-outline">Read Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="html/books.html" class="btn btn-primary">View All Books</a>
+                </div>
+            </div>
+            
+            <!-- Articles Tab Content -->
+            <div class="resources-content" id="articles-content">
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-image">
+                            <div class="placeholder-image" style="background: var(--mint-500); height: 200px;">
+                                <div class="article-title">
+                                    <i class="fas fa-brain"></i>
+                                    <h3>Improving Your Concentration</h3>
+                                    <p>KSU Counseling Services</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-details">
+                            <span class="article-category">Concentration</span>
+                            <h4>Improving Your Concentration</h4>
+                            <p class="article-excerpt">Learn effective techniques to enhance your focus and concentration abilities.</p>
+                            <div class="article-meta">
+                                <span class="article-author">By KSU Counseling Services</span>
+                                <span class="article-time">10 min read</span>
+                            </div>
+                            <a href="book/7. Improving Your Concentration (Article) Author KSU Counseling Services.pdf" class="btn btn-sm btn-outline">Read Article</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image">
+                            <div class="placeholder-image" style="background: var(--mint-600); height: 200px;">
+                                <div class="article-title">
+                                    <i class="fas fa-users"></i>
+                                    <h3>Social Psychology Studies</h3>
+                                    <p>Research Collection</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-details">
+                            <span class="article-category">Social Psychology</span>
+                            <h4>Social Psychology Studies</h4>
+                            <p class="article-excerpt">Collection of important social psychology research findings.</p>
+                            <div class="article-meta">
+                                <span class="article-author">Academic Journal</span>
+                                <span class="article-time">25 min read</span>
+                            </div>
+                            <a href="article/psp-pspi0000158.pdf" class="btn btn-sm btn-outline">Read Article</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image">
+                            <div class="placeholder-image" style="background: var(--mint-700); height: 200px;">
+                                <div class="article-title">
+                                    <i class="fas fa-microscope"></i>
+                                    <h3>Psychology Research Papers</h3>
+                                    <p>Academic Collection</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-details">
+                            <span class="article-category">Research</span>
+                            <h4>Psychology Research Papers</h4>
+                            <p class="article-excerpt">Latest findings in psychological research and studies.</p>
+                            <div class="article-meta">
+                                <span class="article-author">Academic Journal</span>
+                                <span class="article-time">30 min read</span>
+                            </div>
+                            <a href="article/psp-pspp0000077.pdf" class="btn btn-sm btn-outline">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="html/articles.html" class="btn btn-primary">View All Articles</a>
                 </div>
             </div>
         </div>
@@ -509,6 +702,166 @@
         </div>
     </section>
 
+    <section class="success-stories scroll-reveal">
+        <div class="container">
+            <h2>Transformation Stories</h2>
+            <p class="subtitle">Real journeys of healing and growth from our clients</p>
+            
+            <div class="stories-slider">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="img/testimonial-1.png" alt="Success Story">
+                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
+                    </div>
+                    <div class="story-content">
+                        <h3>From Anxiety to Peace</h3>
+                        <p class="client-name">Maria, 34</p>
+                        <p class="story-text">"After struggling with anxiety for over a decade, I found my therapist through SoulCare. Six months later, I've developed coping mechanisms I never thought possible. My panic attacks have reduced by 90%, and I'm finally enjoying life again."</p>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">12</span>
+                                <span class="metric-label">Sessions</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">90%</span>
+                                <span class="metric-label">Improvement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="img/testimonial-2.png" alt="Success Story">
+                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
+                    </div>
+                    <div class="story-content">
+                        <h3>Rebuilding After Loss</h3>
+                        <p class="client-name">James, 42</p>
+                        <p class="story-text">"When I lost my spouse, I couldn't see a way forward. My SoulCare therapist guided me through grief with compassion and expertise. Today, I honor that love while building a new chapter."</p>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">24</span>
+                                <span class="metric-label">Sessions</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">8</span>
+                                <span class="metric-label">Months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="img/testimonial-3.png" alt="Success Story">
+                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
+                    </div>
+                    <div class="story-content">
+                        <h3>Marriage Transformed</h3>
+                        <p class="client-name">Sara & Daniel</p>
+                        <p class="story-text">"We were on the brink of divorce when we started couples therapy on SoulCare. Our psychologist helped us uncover communication patterns that were destroying our relationship and taught us new ways to connect. We're grateful every day for this second chance."</p>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">16</span>
+                                <span class="metric-label">Sessions</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Committed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <button class="prev-story"><i class="fas fa-chevron-left"></i></button>
+                <div class="story-dots">
+                    <span class="story-dot active"></span>
+                    <span class="story-dot"></span>
+                    <span class="story-dot"></span>
+                </div>
+                <button class="next-story"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="platform-features scroll-reveal">
+        <div class="container">
+            <h2>Our Platform is Simple and Convenient</h2>
+            <p class="subtitle">This isn't just our opinion - our users agree</p>
+            <div class="platform-grid">
+                <div class="platform-item">
+                    <i class="fas fa-video"></i>
+                    <h3>Secure Video Sessions</h3>
+                    <p>All consultations take place in a protected personal account</p>
+                </div>
+                <div class="platform-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Easy Schedule Management</h3>
+                    <p>Book, reschedule, and receive reminders for your sessions</p>
+                </div>
+                <div class="platform-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support at Every Step</h3>
+                    <p>We answer questions, provide guidance, and offer support</p>
+                </div>
+                <div class="platform-item">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Flexible Payment Options</h3>
+                    <p>Pay with cards from any country, anywhere in the world</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta scroll-reveal">
+        <div class="container">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Join thousands of others who have found their path to wellness with SoulCare.</p>
+            <a href="#contact" class="btn btn-primary">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <section class="enhanced-features scroll-reveal">
+        <div class="container">
+            <h2>Enhanced Wellness Tools</h2>
+            <div class="enhanced-grid">
+                <div class="enhanced-card">
+                    <div class="enhanced-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="enhanced-content">
+                        <h3>AI Wellness Assistant</h3>
+                        <p>Our AI-powered chatbot provides instant support, guided meditation, mood tracking, and personalized recommendations anytime you need help.</p>
+                        <a href="#" class="btn btn-primary open-chatbot">Try Now</a>
+                    </div>
+                </div>
+                <div class="enhanced-card">
+                    <div class="enhanced-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="enhanced-content">
+                        <h3>Sleep Improvement Program</h3>
+                        <p>Track your sleep patterns, receive personalized recommendations, and access guided sleep meditations.</p>
+                        <a href="#sleep" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="enhanced-card">
+                    <div class="enhanced-icon">
+                        <i class="fas fa-heart-rate"></i>
+                    </div>
+                    <div class="enhanced-content">
+                        <h3>Stress Management Tools</h3>
+                        <p>Interactive tools to identify stress triggers, breathing exercises, and guided relaxation techniques.</p>
+                        <a href="#stress-tools" class="btn btn-outline">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -748,6 +1101,28 @@
                     document.body.style.overflow = '';
                 }
             });
+
+            // Resource tabs functionality
+            const resourceTabs = document.querySelectorAll('.resource-tab');
+            const resourceContents = document.querySelectorAll('.resources-content');
+
+            resourceTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    resourceTabs.forEach(t => t.classList.remove('active'));
+                    resourceContents.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+
+                    // Show corresponding content
+                    const contentId = tab.getAttribute('data-tab');
+                    const content = document.getElementById(contentId + '-content');
+                    if (content) {
+                        content.classList.add('active');
+                    }
+                });
+            });
         });
     </script>
 
@@ -773,6 +1148,145 @@
                 } else {
                     profileSection.style.display = 'none';
                 }
+            });
+        });
+    </script>
+
+    <!-- Add this script before the closing body tag -->
+    <script>
+        // Story slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const storyCards = document.querySelectorAll('.story-card');
+            const storyDots = document.querySelectorAll('.story-dot');
+            const prevStory = document.querySelector('.prev-story');
+            const nextStory = document.querySelector('.next-story');
+            let currentStory = 0;
+            let storyInterval;
+            
+            function showStory(index) {
+                storyCards.forEach(card => {
+                    card.style.display = 'none';
+                });
+                storyDots.forEach(dot => dot.classList.remove('active'));
+                
+                storyCards[index].style.display = 'flex';
+                storyDots[index].classList.add('active');
+                currentStory = index;
+            }
+            
+            function nextStorySlide() {
+                currentStory = (currentStory + 1) % storyCards.length;
+                showStory(currentStory);
+            }
+            
+            function prevStorySlide() {
+                currentStory = (currentStory - 1 + storyCards.length) % storyCards.length;
+                showStory(currentStory);
+            }
+            
+            function startStorySlideShow() {
+                storyInterval = setInterval(nextStorySlide, 6000);
+            }
+            
+            function stopStorySlideShow() {
+                clearInterval(storyInterval);
+            }
+            
+            nextStory.addEventListener('click', () => {
+                stopStorySlideShow();
+                nextStorySlide();
+                startStorySlideShow();
+            });
+            
+            prevStory.addEventListener('click', () => {
+                stopStorySlideShow();
+                prevStorySlide();
+                startStorySlideShow();
+            });
+            
+            storyDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopStorySlideShow();
+                    showStory(index);
+                    startStorySlideShow();
+                });
+            });
+            
+            // Initialize first story
+            showStory(0);
+            startStorySlideShow();
+            
+            // Initialize all non-active stories to display:none
+            for(let i = 1; i < storyCards.length; i++) {
+                storyCards[i].style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- Add this at the end of the body before closing </body> tag -->
+    <div class="chatbot-widget">
+        <div class="chatbot-button">
+            <i class="fas fa-comments"></i>
+            <span>Wellness Assistant</span>
+        </div>
+    </div>
+
+    <!-- Add this script before the closing body tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Existing script code...
+            
+            // Chatbot functionality
+            const chatbotButton = document.querySelector('.chatbot-button');
+            const openChatbotButtons = document.querySelectorAll('.open-chatbot');
+            
+            function openChatbot() {
+                // This will trigger the Voiceflow chatbot to open
+                if (window.voiceflow && window.voiceflow.chat) {
+                    window.voiceflow.chat.open();
+                }
+            }
+            
+            chatbotButton.addEventListener('click', openChatbot);
+            
+            openChatbotButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openChatbot();
+                });
+            });
+            
+            // Enhanced animations for page elements
+            const enhancedCards = document.querySelectorAll('.enhanced-card');
+            
+            enhancedCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('pulse');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('pulse');
+                });
+            });
+            
+            // Add smooth scrolling for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if(this.getAttribute('href') !== '#' && !this.classList.contains('open-chatbot')) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
             });
         });
     </script>
