@@ -63,18 +63,21 @@ document.body.insertAdjacentHTML('beforeend', `
     </div>
 `);
 
-// Update the navigation to include auth buttons and user menu
-const navLinks = document.querySelector('.nav-links');
-navLinks.insertAdjacentHTML('beforeend', `
-    <div class="auth-buttons">
-        <button class="btn btn-outline" id="login-btn">Login</button>
-        <button class="btn btn-primary" id="signup-btn">Sign Up</button>
-    </div>
-    <div class="user-menu" style="display: none;">
-        <button class="btn btn-outline" id="logout-btn">Logout</button>
-        <a href="user.html" class="btn btn-primary">My Profile</a>
-    </div>
-`);
+// Only inject auth buttons if we're NOT on the user.html page
+const isUserPage = window.location.pathname.endsWith('user.html');
+if (!isUserPage) {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.insertAdjacentHTML('beforeend', `
+        <div class="auth-buttons">
+            <button class="btn btn-outline" id="login-btn">Login</button>
+            <button class="btn btn-primary" id="signup-btn">Sign Up</button>
+        </div>
+        <div class="user-menu" style="display: none;">
+            <button class="btn btn-outline" id="logout-btn">Logout</button>
+            <a href="user.html" class="btn btn-primary">My Profile</a>
+        </div>
+    `);
+}
 
 // Modal functionality
 const modals = {
@@ -94,10 +97,13 @@ function hideModal(modalId) {
     modals[modalId].style.display = 'none';
 }
 
-// Event Listeners
-document.getElementById('login-btn').addEventListener('click', () => showModal('login'));
-document.getElementById('signup-btn').addEventListener('click', () => showModal('signup'));
-document.getElementById('logout-btn').addEventListener('click', logOut);
+// Add event listeners only if the elements exist
+if (!isUserPage) {
+    // Event Listeners for login and signup buttons
+    document.getElementById('login-btn')?.addEventListener('click', () => showModal('login'));
+    document.getElementById('signup-btn')?.addEventListener('click', () => showModal('signup'));
+    document.getElementById('logout-btn')?.addEventListener('click', logOut);
+}
 
 // Close modal when clicking the close button or outside the modal
 document.querySelectorAll('.close-modal').forEach(closeBtn => {
@@ -253,14 +259,23 @@ export const signIn = async (email, password) => {
 // Auth state observer
 export const initAuth = () => {
     onAuthStateChanged(auth, (user) => {
+        // Don't try to manipulate buttons on user.html - it has its own logout button
+        if (isUserPage) {
+            if (!user) {
+                // If on user page and user is not logged in, redirect to index
+                window.location.href = 'index.html';
+            }
+            return;
+        }
+        
         const authButtons = document.querySelector('.auth-buttons');
         const userMenu = document.querySelector('.user-menu');
         
         if (user) {
             // User is signed in
             console.log('User is signed in:', user.email);
-            authButtons.style.display = 'none';
-            userMenu.style.display = 'flex';
+            if (authButtons) authButtons.style.display = 'none';
+            if (userMenu) userMenu.style.display = 'flex';
             
             // If on index page and user is logged in, redirect to user dashboard
             if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
@@ -269,13 +284,8 @@ export const initAuth = () => {
         } else {
             // User is signed out
             console.log('User is signed out');
-            authButtons.style.display = 'flex';
-            userMenu.style.display = 'none';
-            
-            // If on user page and user is not logged in, redirect to index
-            if (window.location.pathname.endsWith('user.html')) {
-                window.location.href = 'index.html';
-            }
+            if (authButtons) authButtons.style.display = 'flex';
+            if (userMenu) userMenu.style.display = 'none';
         }
     });
 }; 

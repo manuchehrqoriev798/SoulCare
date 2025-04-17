@@ -28,8 +28,8 @@
                 <li><a href="index.html#gift-cards">Gift Cards</a></li>
                 <li><a href="index.html#tests">Tests</a></li>
                 <li><a href="games.html" class="active">Games</a></li>
-                <li><a href="#login" class="btn btn-outline">Login</a></li>
                 <li><a href="#find-therapist" class="btn btn-primary">Find Therapist</a></li>
+                <!-- Auth buttons will be injected by auth.js -->
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -108,6 +108,15 @@
             clearInterval(breathingInterval);
             document.getElementById('breathing-text').textContent = 'Breathe In';
         }
+    </script>
+
+    <!-- Firebase Scripts -->
+    <script type="module">
+        import { auth } from './firebase-config.js';
+        import { initAuth } from './auth.js';
+
+        // Initialize authentication
+        initAuth();
     </script>
 </body>
 </html> 
