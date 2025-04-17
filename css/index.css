@@ -1870,3 +1870,72 @@ section {
     line-height: 1.5;
 }
 
+/* Add these styles to your existing CSS */
+.learning-resources .enhanced-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.learning-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.btn-resource {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--mint-50);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.btn-resource i {
+    font-size: 1.2em;
+}
+
+.btn-resource:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 153, 120, 0.2);
+}
+
+.resource-featured-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+}
+
+.resource-featured-card .enhanced-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-featured-card p {
+    margin-bottom: 25px;
+}
+
+/* Adjust spacing for mobile */
+@media (max-width: 768px) {
+    .learning-buttons {
+        gap: 12px;
+    }
+    
+    .btn-resource {
+        padding: 10px 15px;
+    }
+}
+
