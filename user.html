@@ -15,240 +15,35 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="index.css">
-    <style>
-        .dashboard {
-            padding-top: 80px;
-            min-height: 100vh;
-            background: var(--secondary-color);
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 30px;
-            padding: 30px;
-        }
-
-        .sidebar {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            height: fit-content;
-        }
-
-        .user-profile {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .user-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .user-avatar i {
-            font-size: 40px;
-            color: var(--white);
-        }
-
-        .sidebar-menu {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        .sidebar-menu a:hover,
-        .sidebar-menu a.active {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .sidebar-menu i {
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        .main-content {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .welcome-message h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .welcome-message p {
-            color: var(--text-light);
-        }
-
-        .quick-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: var(--secondary-color);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .stat-card h3 {
-            font-size: 24px;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .upcoming-sessions {
-            margin-bottom: 30px;
-        }
-
-        .session-card {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            background: var(--secondary-color);
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .session-info {
-            flex: 1;
-        }
-
-        .session-info h3 {
-            margin-bottom: 5px;
-        }
-
-        .session-time {
-            color: var(--text-light);
-        }
-
-        .session-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .progress-section {
-            margin-bottom: 30px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: var(--secondary-color);
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--primary-color);
-            border-radius: 5px;
-            transition: width 0.3s ease;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .resource-card {
-            background: var(--secondary-color);
-            padding: 20px;
-            border-radius: 10px;
-            transition: var(--transition);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .resource-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .resource-card p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        .user-details {
-            background: var(--secondary-color);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .user-details h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .user-details p {
-            margin-bottom: 10px;
-        }
-
-        .user-details strong {
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                position: fixed;
-                left: -250px;
-                top: 80px;
-                bottom: 0;
-                z-index: 100;
-                transition: var(--transition);
-            }
-
-            .sidebar.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="user.css">
+    
+    <!-- Voiceflow Chatbot -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            (function(d, t) {
+                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                v.onload = function() {
+                    if (window.voiceflow && window.voiceflow.chat) {
+                        window.voiceflow.chat.load({
+                            verify: { projectID: '6800d989037becb70886834f' },
+                            url: 'https://general-runtime.voiceflow.com',
+                            versionID: 'production',
+                            voice: {
+                                url: "https://runtime-api.voiceflow.com"
+                            }
+                        });
+                    }
+                }
+                v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+                v.type = "text/javascript"; 
+                if (s) {
+                    s.parentNode.insertBefore(v, s);
+                } else {
+                    d.getElementsByTagName('head')[0].appendChild(v);
+                }
+            })(document, 'script');
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -415,39 +210,79 @@
         import { doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         document.addEventListener('DOMContentLoaded', function() {
-            const userName = document.getElementById('user-name');
-            const userEmail = document.getElementById('user-email');
-            const welcomeName = document.getElementById('welcome-name');
-            const profileName = document.getElementById('profile-name');
-            const profileEmail = document.getElementById('profile-email');
-            const logoutBtn = document.getElementById('logout-btn');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const sidebar = document.querySelector('.sidebar');
-            const navLinks = document.querySelector('.nav-links');
+            // Cache DOM elements
+            const elements = {
+                userName: document.getElementById('user-name'),
+                welcomeName: document.getElementById('welcome-name'),
+                profileName: document.getElementById('profile-name'),
+                profileEmail: document.getElementById('profile-email'),
+                profileAge: document.getElementById('profile-age'),
+                profileExperience: document.getElementById('profile-experience'),
+                logoutBtn: document.getElementById('logout-btn'),
+                editProfileBtn: document.getElementById('edit-profile-btn'),
+                editProfileForm: document.getElementById('edit-profile-form'),
+                editNameInput: document.getElementById('edit-name'),
+                editAgeInput: document.getElementById('edit-age'),
+                editExperienceInput: document.getElementById('edit-experience'),
+                cancelEditBtn: document.getElementById('cancel-edit'),
+                offlineIndicator: document.querySelector('.offline-indicator'),
+                mobileMenuBtn: document.querySelector('.mobile-menu-btn'),
+                sidebar: document.querySelector('.sidebar'),
+                navLinks: document.querySelector('.nav-links')
+            };
 
-            // Add offline status indicator
-            const profileSection = document.querySelector('.user-profile');
-            const offlineIndicator = document.createElement('div');
-            offlineIndicator.className = 'offline-indicator';
-            offlineIndicator.style.display = 'none';
-            offlineIndicator.innerHTML = '<i class="fas fa-wifi-slash"></i> You are offline. Some features may be limited.';
-            profileSection.insertBefore(offlineIndicator, profileSection.firstChild);
+            // Mobile menu toggle
+            if (elements.mobileMenuBtn && elements.sidebar && elements.navLinks) {
+                elements.mobileMenuBtn.addEventListener('click', function() {
+                    elements.sidebar.classList.toggle('active');
+                    elements.navLinks.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.sidebar') && !e.target.closest('.mobile-menu-btn')) {
+                        elements.sidebar.classList.remove('active');
+                        elements.navLinks.classList.remove('active');
+                    }
+                });
+            }
+
+            // Safely update DOM element
+            function safeUpdateElement(element, value, defaultValue = 'Not provided') {
+                if (element) {
+                    element.textContent = value || defaultValue;
+                }
+            }
+
+            // Add offline status indicator if it doesn't exist
+            if (!elements.offlineIndicator) {
+                const profileSection = document.querySelector('.user-profile');
+                if (profileSection) {
+                    const offlineIndicator = document.createElement('div');
+                    offlineIndicator.className = 'offline-indicator';
+                    offlineIndicator.style.display = 'none';
+                    offlineIndicator.innerHTML = '<i class="fas fa-wifi-slash"></i> You are offline. Some features may be limited.';
+                    profileSection.insertBefore(offlineIndicator, profileSection.firstChild);
+                    elements.offlineIndicator = offlineIndicator;
+                }
+            }
 
             // Check authentication state
             auth.onAuthStateChanged(async function(user) {
                 if (user) {
                     // User is signed in
-                    userName.textContent = user.displayName || 'User';
-                    userEmail.textContent = user.email;
-                    welcomeName.textContent = user.displayName || 'User';
+                    safeUpdateElement(elements.userName, user.displayName);
+                    safeUpdateElement(elements.welcomeName, user.displayName);
                     
                     // Get additional user data from Firestore
                     try {
                         // Check if we're online
                         if (!navigator.onLine) {
-                            offlineIndicator.style.display = 'block';
-                            profileName.textContent = 'Offline - Please check your internet connection';
-                            profileEmail.textContent = user.email || 'Offline';
+                            if (elements.offlineIndicator) {
+                                elements.offlineIndicator.style.display = 'block';
+                            }
+                            safeUpdateElement(elements.profileName, 'Offline - Please check your internet connection');
+                            safeUpdateElement(elements.profileEmail, user.email);
                             return;
                         }
                         
@@ -459,16 +294,18 @@
                             console.log("User data from Firestore:", userData);
                             
                             // Update all profile fields with user data
-                            profileName.textContent = userData.name || 'Not provided';
-                            profileEmail.textContent = userData.email || user.email;
-                            profileAge.textContent = userData.age || 'Not provided';
-                            profileExperience.textContent = userData.experience || 'Not provided';
+                            safeUpdateElement(elements.profileName, userData.name);
+                            safeUpdateElement(elements.profileEmail, userData.email || user.email);
+                            safeUpdateElement(elements.profileAge, userData.age);
+                            safeUpdateElement(elements.profileExperience, userData.experience);
                             
                             // Update header name displays
-                            userName.textContent = userData.name || 'User';
-                            welcomeName.textContent = userData.name || 'User';
+                            safeUpdateElement(elements.userName, userData.name);
+                            safeUpdateElement(elements.welcomeName, userData.name);
                             
-                            offlineIndicator.style.display = 'none';
+                            if (elements.offlineIndicator) {
+                                elements.offlineIndicator.style.display = 'none';
+                            }
                         } else {
                             console.log("No user data found in Firestore for ID:", user.uid);
                             // Create new user document if it doesn't exist
@@ -476,30 +313,36 @@
                                 const userData = {
                                     name: user.displayName || 'Not provided',
                                     email: user.email,
+                                    age: 'Not provided',
+                                    experience: 'Not provided',
                                     createdAt: new Date()
                                 };
                                 await setDoc(doc(db, "users", user.uid), userData);
                                 console.log("Created new user document in Firestore:", userData);
                                 
                                 // Update display with the new data
-                                profileName.textContent = userData.name;
-                                profileEmail.textContent = userData.email;
+                                safeUpdateElement(elements.profileName, userData.name);
+                                safeUpdateElement(elements.profileEmail, userData.email);
+                                safeUpdateElement(elements.profileAge, userData.age);
+                                safeUpdateElement(elements.profileExperience, userData.experience);
                             } catch (error) {
                                 console.error("Error creating user document:", error);
                                 // Set default values if creation fails
-                                profileName.textContent = user.displayName || 'Not provided';
-                                profileEmail.textContent = user.email;
+                                safeUpdateElement(elements.profileName, user.displayName);
+                                safeUpdateElement(elements.profileEmail, user.email);
                             }
                         }
                     } catch (error) {
                         console.error("Error getting user data:", error);
                         if (error.code === 'unavailable' || error.message.includes('offline')) {
-                            offlineIndicator.style.display = 'block';
-                            profileName.textContent = 'Offline - Please check your internet connection';
-                            profileEmail.textContent = user.email || 'Offline';
+                            if (elements.offlineIndicator) {
+                                elements.offlineIndicator.style.display = 'block';
+                            }
+                            safeUpdateElement(elements.profileName, 'Offline - Please check your internet connection');
+                            safeUpdateElement(elements.profileEmail, user.email);
                         } else {
-                            profileName.textContent = 'Error loading data';
-                            profileEmail.textContent = user.email || 'Error';
+                            safeUpdateElement(elements.profileName, 'Error loading data');
+                            safeUpdateElement(elements.profileEmail, user.email);
                         }
                     }
                 } else {
@@ -508,89 +351,74 @@
                 }
             });
 
-            // Logout functionality
-            logoutBtn.addEventListener('click', function() {
-                logOut().then(() => {
-                    window.location.href = 'index.html';
-                }).catch((error) => {
-                    console.error('Error signing out:', error);
+            // Event Listeners
+            if (elements.logoutBtn) {
+                elements.logoutBtn.addEventListener('click', function() {
+                    logOut().then(() => {
+                        window.location.href = 'index.html';
+                    }).catch((error) => {
+                        console.error('Error signing out:', error);
+                    });
                 });
-            });
+            }
 
-            // Mobile menu toggle
-            mobileMenuBtn.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.sidebar') && !e.target.closest('.mobile-menu-btn')) {
-                    sidebar.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
-            });
-
-            // Edit Profile Button Click Handler
-            const editProfileBtn = document.getElementById('edit-profile-btn');
-            const editProfileForm = document.getElementById('edit-profile-form');
-            const cancelEditBtn = document.getElementById('cancel-edit');
-            const editNameInput = document.getElementById('edit-name');
-            const editAgeInput = document.getElementById('edit-age');
-            const editExperienceInput = document.getElementById('edit-experience');
-            const profileAge = document.getElementById('profile-age');
-            const profileExperience = document.getElementById('profile-experience');
-
-            editProfileBtn.addEventListener('click', function() {
-                const currentName = profileName.textContent;
-                const currentAge = profileAge.textContent;
-                const currentExperience = profileExperience.textContent;
-
-                editNameInput.value = currentName === 'Not provided' ? '' : currentName;
-                editAgeInput.value = currentAge === 'Not provided' ? '' : currentAge;
-                editExperienceInput.value = currentExperience === 'Not provided' ? '' : currentExperience;
-
-                editProfileForm.style.display = 'block';
-                editProfileBtn.style.display = 'none';
-            });
-
-            // Cancel Edit Button Click Handler
-            cancelEditBtn.addEventListener('click', function() {
-                editProfileForm.style.display = 'none';
-                editProfileBtn.style.display = 'block';
-            });
-
-            // Edit Profile Form Submit Handler
-            editProfileForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const user = auth.currentUser;
-                if (!user) return;
-
-                try {
-                    const updatedData = {
-                        name: editNameInput.value,
-                        age: parseInt(editAgeInput.value, 10),
-                        experience: editExperienceInput.value
-                    };
-
-                    await updateDoc(doc(db, "users", user.uid), updatedData);
-                    console.log("Profile updated successfully:", updatedData);
+            if (elements.editProfileBtn && elements.editProfileForm) {
+                elements.editProfileBtn.addEventListener('click', function() {
+                    elements.editProfileForm.style.display = 'block';
+                    elements.editProfileBtn.style.display = 'none';
                     
-                    // Update display
-                    profileName.textContent = updatedData.name;
-                    profileAge.textContent = updatedData.age;
-                    profileExperience.textContent = updatedData.experience;
-                    profileEmail.textContent = user.email;
+                    // Populate form with current values
+                    if (elements.editNameInput) {
+                        elements.editNameInput.value = elements.profileName?.textContent === 'Not provided' ? '' : elements.profileName?.textContent;
+                    }
+                    if (elements.editAgeInput) {
+                        elements.editAgeInput.value = elements.profileAge?.textContent === 'Not provided' ? '' : elements.profileAge?.textContent;
+                    }
+                    if (elements.editExperienceInput) {
+                        elements.editExperienceInput.value = elements.profileExperience?.textContent === 'Not provided' ? '' : elements.profileExperience?.textContent;
+                    }
+                });
+            }
 
-                    // Hide form
-                    editProfileForm.style.display = 'none';
-                    editProfileBtn.style.display = 'block';
-                } catch (error) {
-                    console.error("Error updating profile:", error);
-                    alert("Error updating profile. Please try again.");
-                }
-            });
+            if (elements.cancelEditBtn) {
+                elements.cancelEditBtn.addEventListener('click', function() {
+                    elements.editProfileForm.style.display = 'none';
+                    elements.editProfileBtn.style.display = 'block';
+                });
+            }
+
+            if (elements.editProfileForm) {
+                elements.editProfileForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const user = auth.currentUser;
+                    if (!user) return;
+
+                    try {
+                        const updatedData = {
+                            name: elements.editNameInput?.value || 'Not provided',
+                            age: parseInt(elements.editAgeInput?.value, 10) || 0,
+                            experience: elements.editExperienceInput?.value || 'Not provided'
+                        };
+
+                        await updateDoc(doc(db, "users", user.uid), updatedData);
+                        console.log("Profile updated successfully:", updatedData);
+                        
+                        // Update display
+                        safeUpdateElement(elements.profileName, updatedData.name);
+                        safeUpdateElement(elements.profileAge, updatedData.age);
+                        safeUpdateElement(elements.profileExperience, updatedData.experience);
+                        safeUpdateElement(elements.profileEmail, user.email);
+
+                        // Hide form
+                        elements.editProfileForm.style.display = 'none';
+                        elements.editProfileBtn.style.display = 'block';
+                    } catch (error) {
+                        console.error("Error updating profile:", error);
+                        alert("Error updating profile. Please try again.");
+                    }
+                });
+            }
         });
     </script>
 </body>
