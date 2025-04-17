@@ -114,11 +114,19 @@ nav {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
-    transition: var(--transition);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-img {
+    height: 30px;
+    width: auto;
+    margin-top: -10px;
 }
 
 .logo:hover {

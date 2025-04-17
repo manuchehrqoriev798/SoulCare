@@ -1,3 +1,28 @@
+.current-mood-display {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.current-mood-display h3 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.current-mood-display img {
+    width: 40px;
+    height: 40px;
+}
+
+.current-mood-display p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
 .dashboard {
     padding-top: 80px;
     min-height: 100vh;
@@ -208,6 +233,88 @@
     font-weight: 600;
 }
 
+.mood-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.mood-selection {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.current-mood-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.current-mood-content p {
+    font-size: 1.4em;
+    margin: 0;
+    color: var(--text-color);
+    order: -1;
+}
+
+.current-mood-content img {
+    width: 100px;
+    height: 100px;
+}
+
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.mood-item {
+    background: var(--secondary-color);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mood-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mood-item.selected {
+    border: 2px solid var(--primary-color);
+    background: var(--white);
+}
+
+.mood-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.mood-item span {
+    display: block;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.mood-section {
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.mood-section > h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.4em;
+}
+
 @media (max-width: 768px) {
     .dashboard-grid {
         grid-template-columns: 1fr;
@@ -228,5 +335,24 @@
 
     .mobile-menu-btn {
         display: block;
+    }
+
+    .mood-container {
+        grid-template-columns: 1fr;
+    }
+
+    .mood-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .current-mood-content img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 } 

@@ -48,7 +48,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">SoulCare</a>
+            <a href="index.html" class="logo"><img src="img/logo.png" alt="SoulCare Logo" class="logo-img">SoulCare</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#profile">Profile</a></li>
@@ -115,6 +115,60 @@
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                             <button type="button" id="cancel-edit" class="btn btn-outline">Cancel</button>
                         </form>
+                    </div>
+
+                    <!-- Mood Selection Section -->
+                    <div class="mood-section">
+                        <h3>How are you feeling today?</h3>
+                        <div class="mood-container">
+                            <div class="mood-selection">
+                                <div class="mood-grid">
+                                    <div class="mood-item" data-mood="Happy">
+                                        <img src="img/mood/happy.png" alt="Happy">
+                                        <span>Happy</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Middle">
+                                        <img src="img/mood/middle.png" alt="Middle">
+                                        <span>Middle</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Anxiety">
+                                        <img src="img/mood/anxiety.png" alt="Anxiety">
+                                        <span>Anxiety</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Sad">
+                                        <img src="img/mood/sad.png" alt="Sad">
+                                        <span>Sad</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Big Sad">
+                                        <img src="img/mood/big-sad.png" alt="Big Sad">
+                                        <span>Big Sad</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Big Anger">
+                                        <img src="img/mood/big-anger.png" alt="Big Anger">
+                                        <span>Big Anger</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Oh">
+                                        <img src="img/mood/oh.png" alt="Oh">
+                                        <span>Oh</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Silly">
+                                        <img src="img/mood/silly.png" alt="Silly">
+                                        <span>Silly</span>
+                                    </div>
+                                    <div class="mood-item" data-mood="Idk">
+                                        <img src="img/mood/idk.png" alt="Idk">
+                                        <span>Idk</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="current-mood-display">
+                                <h3>Current Mood</h3>
+                                <div class="current-mood-content">
+                                    <img id="current-mood-img" src="img/mood/happy.png" alt="Current Mood" style="display: none;">
+                                    <p id="current-mood">Not selected</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="quick-stats">
@@ -228,7 +282,10 @@
                 offlineIndicator: document.querySelector('.offline-indicator'),
                 mobileMenuBtn: document.querySelector('.mobile-menu-btn'),
                 sidebar: document.querySelector('.sidebar'),
-                navLinks: document.querySelector('.nav-links')
+                navLinks: document.querySelector('.nav-links'),
+                currentMood: document.getElementById('current-mood'),
+                currentMoodImg: document.getElementById('current-mood-img'),
+                moodItems: document.querySelectorAll('.mood-item')
             };
 
             // Mobile menu toggle
@@ -267,9 +324,78 @@
                 }
             }
 
+            // Handle mood selection
+            if (elements.moodItems) {
+                elements.moodItems.forEach(item => {
+                    item.addEventListener('click', async function() {
+                        const selectedMood = this.getAttribute('data-mood');
+                        const moodImage = this.querySelector('img').src;
+                        const user = auth.currentUser;
+                        
+                        if (!user) return;
+
+                        try {
+                            // Remove selected class from all items
+                            elements.moodItems.forEach(i => i.classList.remove('selected'));
+                            // Add selected class to clicked item
+                            this.classList.add('selected');
+
+                            // Update current mood display
+                            if (elements.currentMood) {
+                                elements.currentMood.textContent = selectedMood;
+                            }
+                            if (elements.currentMoodImg) {
+                                elements.currentMoodImg.src = moodImage;
+                                elements.currentMoodImg.style.display = 'block';
+                            }
+
+                            // Save to Firebase
+                            await updateDoc(doc(db, "users", user.uid), {
+                                currentMood: selectedMood,
+                                currentMoodImage: moodImage,
+                                lastMoodUpdate: new Date()
+                            });
+
+                            console.log("Mood updated successfully:", selectedMood);
+                        } catch (error) {
+                            console.error("Error updating mood:", error);
+                            alert("Error updating mood. Please try again.");
+                        }
+                    });
+                });
+            }
+
+            // Load current mood from Firebase
+            async function loadCurrentMood(userId) {
+                try {
+                    const userDoc = await getDoc(doc(db, "users", userId));
+                    if (userDoc.exists() && userDoc.data().currentMood) {
+                        const userData = userDoc.data();
+                        if (elements.currentMood) {
+                            elements.currentMood.textContent = userData.currentMood;
+                        }
+                        if (elements.currentMoodImg && userData.currentMoodImage) {
+                            elements.currentMoodImg.src = userData.currentMoodImage;
+                            elements.currentMoodImg.style.display = 'block';
+                        }
+                        // Add selected class to current mood item
+                        elements.moodItems.forEach(item => {
+                            if (item.getAttribute('data-mood') === userData.currentMood) {
+                                item.classList.add('selected');
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.error("Error loading mood:", error);
+                }
+            }
+
             // Check authentication state
             auth.onAuthStateChanged(async function(user) {
                 if (user) {
+                    // Load current mood when user is authenticated
+                    await loadCurrentMood(user.uid);
+                    
                     // User is signed in
                     safeUpdateElement(elements.userName, user.displayName);
                     safeUpdateElement(elements.welcomeName, user.displayName);
@@ -323,8 +449,6 @@
                                 // Update display with the new data
                                 safeUpdateElement(elements.profileName, userData.name);
                                 safeUpdateElement(elements.profileEmail, userData.email);
-                                safeUpdateElement(elements.profileAge, userData.age);
-                                safeUpdateElement(elements.profileExperience, userData.experience);
                             } catch (error) {
                                 console.error("Error creating user document:", error);
                                 // Set default values if creation fails
