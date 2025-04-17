@@ -1,0 +1,73 @@
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.game-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #4a90e2;
+}
+
+.game-frame {
+    width: 100%;
+    min-height: 400px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.breathing-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #4a90e2;
+    margin: 2rem auto;
+    animation: breathe 8s infinite ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); background: #4a90e2; }
+    50% { transform: scale(1.5); background: #63b3ed; }
+}
+
+.breathing-controls {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.breathing-controls button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.breathing-controls button:hover {
+    background: #357abd;
+} 
