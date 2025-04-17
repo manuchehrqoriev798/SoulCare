@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulCare - User Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .dashboard {
+            padding-top: 80px;
+            min-height: 100vh;
+            background: var(--secondary-color);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .sidebar {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .user-profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .user-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-avatar i {
+            font-size: 40px;
+            color: var(--white);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .sidebar-menu i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .main-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-message h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .welcome-message p {
+            color: var(--text-light);
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .upcoming-sessions {
+            margin-bottom: 30px;
+        }
+
+        .session-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .session-info {
+            flex: 1;
+        }
+
+        .session-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .session-time {
+            color: var(--text-light);
+        }
+
+        .session-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--secondary-color);
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .resource-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .user-details {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .user-details h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .user-details p {
+            margin-bottom: 10px;
+        }
+
+        .user-details strong {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: fixed;
+                left: -250px;
+                top: 80px;
+                bottom: 0;
+                z-index: 100;
+                transition: var(--transition);
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">SoulCare</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#sessions">Sessions</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#" id="logout-btn" class="btn btn-outline">Logout</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="dashboard-grid">
+                <aside class="sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 id="user-name">Loading...</h3>
+                        <p id="user-email">Loading...</p>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                        <li><a href="#sessions"><i class="fas fa-calendar"></i> My Sessions</a></li>
+                        <li><a href="#progress"><i class="fas fa-chart-line"></i> Progress</a></li>
+                        <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                        <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                        <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    </ul>
+                </aside>
+
+                <div class="main-content">
+                    <div class="dashboard-header">
+                        <div class="welcome-message">
+                            <h1>Welcome back, <span id="welcome-name">User</span>!</h1>
+                            <p>Here's your wellness journey overview</p>
+                        </div>
+                    </div>
+
+                    <div class="user-details">
+                        <h3>Your Profile Information</h3>
+                        <p><strong>Name:</strong> <span id="profile-name">Loading...</span></p>
+                        <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+                        <p><strong>Age:</strong> <span id="profile-age">Loading...</span></p>
+                        <p><strong>Experience with psychologists:</strong> <span id="profile-experience">Loading...</span></p>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <h3>5</h3>
+                            <p>Sessions Completed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>2</h3>
+                            <p>Upcoming Sessions</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>3</h3>
+                            <p>Goals Achieved</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>80%</h3>
+                            <p>Progress</p>
+                        </div>
+                    </div>
+
+                    <section class="upcoming-sessions">
+                        <h2>Upcoming Sessions</h2>
+                        <div class="session-card">
+                            <div class="session-info">
+                                <h3>Stress Management</h3>
+                                <p class="session-time">Tomorrow, 2:00 PM</p>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn btn-primary">Join</button>
+                                <button class="btn btn-outline">Reschedule</button>
+                            </div>
+                        </div>
+                        <div class="session-card">
+                            <div class="session-info">
+                                <h3>Anxiety Relief</h3>
+                                <p class="session-time">Friday, 11:00 AM</p>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn btn-primary">Join</button>
+                                <button class="btn btn-outline">Reschedule</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="progress-section">
+                        <h2>Your Progress</h2>
+                        <div class="progress-item">
+                            <h3>Stress Management</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <p>75% Complete</p>
+                        </div>
+                        <div class="progress-item">
+                            <h3>Anxiety Relief</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <p>60% Complete</p>
+                        </div>
+                    </section>
+
+                    <section class="resources-section">
+                        <h2>Recommended Resources</h2>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <h3>Meditation Guide</h3>
+                                <p>Learn basic meditation techniques for stress relief</p>
+                                <a href="#" class="btn btn-primary">Start Learning</a>
+                            </div>
+                            <div class="resource-card">
+                                <h3>Sleep Better</h3>
+                                <p>Tips and techniques for better sleep quality</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                            </div>
+                            <div class="resource-card">
+                                <h3>Mindfulness Exercises</h3>
+                                <p>Daily exercises to improve mindfulness</p>
+                                <a href="#" class="btn btn-primary">Try Now</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase Scripts -->
+    <script type="module">
+        import { auth, db } from './firebase-config.js';
+        import { logOut } from './auth.js';
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const userName = document.getElementById('user-name');
+            const userEmail = document.getElementById('user-email');
+            const welcomeName = document.getElementById('welcome-name');
+            const profileName = document.getElementById('profile-name');
+            const profileEmail = document.getElementById('profile-email');
+            const profileAge = document.getElementById('profile-age');
+            const profileExperience = document.getElementById('profile-experience');
+            const logoutBtn = document.getElementById('logout-btn');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const sidebar = document.querySelector('.sidebar');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Check authentication state
+            auth.onAuthStateChanged(async function(user) {
+                if (user) {
+                    // User is signed in
+                    userName.textContent = user.displayName || 'User';
+                    userEmail.textContent = user.email;
+                    welcomeName.textContent = user.displayName || 'User';
+                    
+                    // Get additional user data from Firestore
+                    try {
+                        const userDoc = await getDoc(doc(db, "users", user.uid));
+                        if (userDoc.exists()) {
+                            const userData = userDoc.data();
+                            profileName.textContent = userData.name || 'Not provided';
+                            profileEmail.textContent = userData.email || user.email;
+                            profileAge.textContent = userData.age || 'Not provided';
+                            profileExperience.textContent = userData.experience === 'yes' ? 'Yes' : 'No';
+                        } else {
+                            console.log("No user data found in Firestore");
+                        }
+                    } catch (error) {
+                        console.error("Error getting user data:", error);
+                    }
+                } else {
+                    // User is signed out, redirect to index page
+                    window.location.href = 'index.html';
+                }
+            });
+
+            // Logout functionality
+            logoutBtn.addEventListener('click', function() {
+                logOut().then(() => {
+                    window.location.href = 'index.html';
+                }).catch((error) => {
+                    console.error('Error signing out:', error);
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.sidebar') && !e.target.closest('.mobile-menu-btn')) {
+                    sidebar.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
