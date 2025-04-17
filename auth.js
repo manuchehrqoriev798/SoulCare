@@ -27,7 +27,7 @@ document.body.insertAdjacentHTML('beforeend', `
             <form id="signup-form">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
-                <input type="number" placeholder="Your Age" required>
+                <input type="number" placeholder="Your Age" min="13" max="120" required>
                 <div class="form-group">
                     <label>Have you ever had any experience with psychologists?</label>
                     <div class="radio-group">
@@ -39,7 +39,8 @@ document.body.insertAdjacentHTML('beforeend', `
                         </label>
                     </div>
                 </div>
-                <input type="password" placeholder="Password (at least 6 characters)" required minlength="6">
+                <label>Password</label>
+                <input type="password" placeholder="Password (at least 6 characters)" required>
                 <div class="error-message" id="signup-error"></div>
                 <button type="submit" class="btn btn-primary">Sign Up</button>
             </form>
@@ -135,6 +136,12 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     // Clear previous error
     const errorElement = document.getElementById('signup-error');
     errorElement.textContent = '';
+    
+    // Validate age
+    if (age < 13 || age > 120) {
+        errorElement.textContent = 'Age must be between 13 and 120 years.';
+        return;
+    }
     
     // Validate password length
     if (password.length < 6) {

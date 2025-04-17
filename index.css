@@ -977,6 +977,24 @@ section {
     box-shadow: var(--shadow);
 }
 
+.password-notice {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.password-notice i {
+    color: var(--primary-color);
+    margin-right: 8px;
+    font-size: 16px;
+}
+
 .close-modal {
     position: absolute;
     top: 10px;
@@ -1002,6 +1020,17 @@ section {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+}
+
+/* Remove spinner buttons from number inputs */
+.auth-modal input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.auth-modal input[type="number"]::-webkit-outer-spin-button,
+.auth-modal input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .auth-modal .form-group {
