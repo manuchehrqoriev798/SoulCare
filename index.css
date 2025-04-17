@@ -1040,6 +1040,15 @@ section {
     text-decoration: underline;
 }
 
+/* Error message styling */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    min-height: 20px;
+}
+
 /* Auth Buttons in Navigation */
 .auth-buttons {
     display: flex;
