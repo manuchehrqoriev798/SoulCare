@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - SoulCare</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #40B3A2;
+            --secondary-color: #E8F3F1;
+            --accent-color: #2C7A6E;
+            --text-color: #2C3E50;
+            --border-color: #E1E8ED;
+            --success-color: #28a745;
+            --error-color: #dc3545;
+            --mint-600: #40B3A2;
+            --mint-700: #2C7A6E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        .payment-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .payment-header p {
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        .payment-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 25px;
+            border-bottom: 2px solid var(--secondary-color);
+            margin-bottom: 30px;
+        }
+
+        .service-details h2 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.8em;
+        }
+
+        .service-details p {
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .service-price {
+            text-align: right;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1em;
+        }
+
+        .final-price {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .payment-form {
+            display: grid;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        input {
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(64, 179, 162, 0.3);
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            color: var(--text-color);
+            font-size: 1em;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+        }
+
+        .secure-badge i {
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .back-link i {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                margin: 20px auto;
+            }
+
+            .payment-card {
+                padding: 25px;
+            }
+
+            .payment-header h1 {
+                font-size: 2em;
+            }
+
+            .service-details h2 {
+                font-size: 1.5em;
+            }
+
+            .final-price {
+                font-size: 1.6em;
+            }
+        }
+
+        /* Add these new styles */
+        .psychologist-selection {
+            margin: 30px 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 30px;
+        }
+
+        .psychologist-selection h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .psychologists-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .psychologist-option {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .psychologist-option input[type="radio"] {
+            display: none;
+        }
+
+        .psychologist-card {
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .psychologist-option input[type="radio"]:checked + .psychologist-card {
+            border-color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+
+        .psychologist-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .psychologist-info h4 {
+            color: var(--text-color);
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .psychologist-info p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .psychologists-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-header">
+            <h1>Complete Your Booking</h1>
+            <p>Secure payment for your therapy session</p>
+        </div>
+
+        <div class="payment-card">
+            <div class="service-summary">
+                <div class="service-details">
+                    <h2 id="service-name">Individual Therapy</h2>
+                    <p>50-minute session</p>
+                </div>
+                <div class="service-price">
+                    <div class="original-price">$60</div>
+                    <div class="final-price">$50</div>
+                </div>
+            </div>
+
+            <form class="payment-form" id="payment-form">
+                <div class="psychologist-selection">
+                    <h3>Choose Your Psychologist</h3>
+                    <div class="psychologists-grid">
+                        <label class="psychologist-option">
+                            <input type="radio" name="psychologist" value="dr-sarah" required>
+                            <div class="psychologist-card">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop" alt="Dr. Sarah" class="psychologist-img">
+                                <div class="psychologist-info">
+                                    <h4>Dr. Sarah Johnson</h4>
+                                    <p>Clinical Psychologist</p>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="psychologist-option">
+                            <input type="radio" name="psychologist" value="dr-michael">
+                            <div class="psychologist-card">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop" alt="Dr. Michael" class="psychologist-img">
+                                <div class="psychologist-info">
+                                    <h4>Dr. Michael Chen</h4>
+                                    <p>Behavioral Therapist</p>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="psychologist-option">
+                            <input type="radio" name="psychologist" value="dr-emma">
+                            <div class="psychologist-card">
+                                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=300&fit=crop" alt="Dr. Emma" class="psychologist-img">
+                                <div class="psychologist-info">
+                                    <h4>Dr. Emma Rodriguez</h4>
+                                    <p>Family Therapist</p>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="psychologist-option">
+                            <input type="radio" name="psychologist" value="dr-james">
+                            <div class="psychologist-card">
+                                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=300&fit=crop" alt="Dr. James" class="psychologist-img">
+                                <div class="psychologist-info">
+                                    <h4>Dr. James Wilson</h4>
+                                    <p>Cognitive Therapist</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" required placeholder="1234 5678 9012 3456">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" required placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" required placeholder="123">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Complete Booking</button>
+            </form>
+
+            <div class="secure-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Your payment is secure and encrypted</span>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Services
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get service details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const service = urlParams.get('service');
+            const price = urlParams.get('price');
+
+            // Update page with service details
+            if (service && price) {
+                document.getElementById('service-name').textContent = service;
+                document.querySelector('.final-price').textContent = price;
+            }
+
+            // Handle form submission
+            document.getElementById('payment-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Payment processed successfully! You will receive a confirmation email shortly.');
+                window.location.href = '../index.html';
+            });
+
+            // Card number formatting
+            document.getElementById('card-number').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s/g, '');
+                value = value.replace(/(\d{4})/g, '$1 ').trim();
+                e.target.value = value;
+            });
+
+            // Expiry date formatting
+            document.getElementById('expiry').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.slice(0,2) + '/' + value.slice(2);
+                }
+                e.target.value = value;
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -134,7 +134,11 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-user-friends"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-user-friends main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <div class="service-content">
                         <h3>Individual Therapy</h3>
@@ -150,13 +154,17 @@
                                 <span class="service-price">$50/session</span>
                                 <span class="discount-tag">Save 17%</span>
                             </div>
-                            <a href="#book" class="btn btn-primary btn-large">Book</a>
+                            <a href="html/payment.html?service=Individual%20Therapy&price=$50" class="btn btn-primary btn-large">Book</a>
                         </div>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-users main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <div class="service-content">
                         <h3>Group Therapy</h3>
@@ -172,13 +180,17 @@
                                 <span class="service-price">$35/session</span>
                                 <span class="discount-tag">Save 22%</span>
                             </div>
-                            <a href="#book" class="btn btn-primary btn-large">Book</a>
+                            <a href="html/payment.html?service=Group%20Therapy&price=$35" class="btn btn-primary btn-large">Book</a>
                         </div>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-heart"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-heart main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <div class="service-content">
                         <h3>Couples Counseling</h3>
@@ -194,13 +206,17 @@
                                 <span class="service-price">$75/session</span>
                                 <span class="discount-tag">Save 17%</span>
                             </div>
-                            <a href="#book" class="btn btn-primary btn-large">Book</a>
+                            <a href="html/payment.html?service=Couples%20Counseling&price=$75" class="btn btn-primary btn-large">Book</a>
                         </div>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-child"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-child main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <div class="service-content">
                         <h3>Child Psychology</h3>
@@ -216,7 +232,7 @@
                                 <span class="service-price">$60/session</span>
                                 <span class="discount-tag">Save 20%</span>
                             </div>
-                            <a href="#book" class="btn btn-primary btn-large">Book</a>
+                            <a href="html/payment.html?service=Child%20Psychology&price=$60" class="btn btn-primary btn-large">Book</a>
                         </div>
                     </div>
                 </div>
@@ -242,18 +258,29 @@
                 <div class="resources-main-grid">
                     <div class="resource-featured-card">
                         <div class="enhanced-icon">
-                            <i class="fas fa-robot"></i>
+                            <div class="icon-stack">
+                                <i class="fas fa-heart main-icon"></i>
+                                <i class="fas fa-comment-dots floating-icon"></i>
+                                <i class="fas fa-sparkles floating-icon"></i>
+                            </div>
                         </div>
                         <div class="enhanced-content">
-                            <h3>AI Wellness Assistant</h3>
-                            <p>Get 24/7 support and guidance from our AI wellness chatbot. Ask questions, receive personalized recommendations, and practice guided meditations.</p>
-                            <a href="#" class="btn btn-primary open-chatbot">Try Now</a>
+                            <h3>Meet SoulCare Chatbot</h3>
+                            <p>Your friendly companion ready to listen and guide you through your wellness journey. Get personalized support and recommendations anytime you need.</p>
+                            <a href="#" class="btn btn-primary open-chatbot">
+                                <i class="fas fa-message-smile"></i>
+                                Chat with SoulCare
+                            </a>
                         </div>
                     </div>
 
                     <div class="resource-featured-card">
                         <div class="enhanced-icon">
-                            <i class="fas fa-book-open"></i>
+                            <div class="icon-stack">
+                                <i class="fas fa-calendar-check main-icon"></i>
+                                <i class="fas fa-user-plus floating-icon"></i>
+                                <i class="fas fa-star floating-icon"></i>
+                            </div>
                         </div>
                         <div class="enhanced-content">
                             <h3>Book a Session</h3>
@@ -266,7 +293,11 @@
 
                     <div class="resource-featured-card learning-resources">
                         <div class="enhanced-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                            <div class="icon-stack">
+                                <i class="fas fa-graduation-cap main-icon"></i>
+                                <i class="fas fa-book floating-icon"></i>
+                                <i class="fas fa-video floating-icon"></i>
+                            </div>
                         </div>
                         <div class="enhanced-content">
                             <h3>Learning Resources</h3>
@@ -295,7 +326,7 @@
                     <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=ZJy1ajvMU1k', '_blank')" style="cursor: pointer;">
                         <div class="video-thumbnail">
                             <img src="https://img.youtube.com/vi/ZJy1ajvMU1k/maxresdefault.jpg" alt="Psychology of Depression">
-                            <div class="play-button"><i class="fas fa-play"></i></div>
+                            <div class="play-button"><i class="fas fa-play main-icon"></i></div>
                         </div>
                         <div class="video-details">
                             <h4>Understanding Depression: A Deep Dive</h4>
@@ -309,7 +340,7 @@
                     <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=rqoxYKtEWEc', '_blank')" style="cursor: pointer;">
                         <div class="video-thumbnail">
                             <img src="https://img.youtube.com/vi/rqoxYKtEWEc/maxresdefault.jpg" alt="Mindfulness Meditation">
-                            <div class="play-button"><i class="fas fa-play"></i></div>
+                            <div class="play-button"><i class="fas fa-play main-icon"></i></div>
                         </div>
                         <div class="video-details">
                             <h4>10-Minute Mindfulness Meditation</h4>
@@ -323,7 +354,7 @@
                     <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=DxIDKZHW3-E', '_blank')" style="cursor: pointer;">
                         <div class="video-thumbnail">
                             <img src="https://img.youtube.com/vi/DxIDKZHW3-E/maxresdefault.jpg" alt="Anxiety Management">
-                            <div class="play-button"><i class="fas fa-play"></i></div>
+                            <div class="play-button"><i class="fas fa-play main-icon"></i></div>
                         </div>
                         <div class="video-details">
                             <h4>Practical Tools for Managing Anxiety</h4>
@@ -346,7 +377,11 @@
                         <div class="book-cover">
                             <div class="placeholder-image" style="background: var(--mint-600); height: 200px;">
                                 <div class="book-title">
-                                    <i class="fas fa-book-open"></i>
+                                    <div class="icon-stack">
+                                        <i class="fas fa-book-open main-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                    </div>
                                     <h3>Atomic Habits</h3>
                                     <p>James Clear</p>
                                 </div>
@@ -364,7 +399,11 @@
                         <div class="book-cover">
                             <div class="placeholder-image" style="background: var(--mint-700); height: 200px;">
                                 <div class="book-title">
-                                    <i class="fas fa-brain"></i>
+                                    <div class="icon-stack">
+                                        <i class="fas fa-brain main-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                    </div>
                                     <h3>The Interpretation of Dreams</h3>
                                     <p>Sigmund Freud</p>
                                 </div>
@@ -382,7 +421,11 @@
                         <div class="book-cover">
                             <div class="placeholder-image" style="background: var(--mint-800); height: 200px;">
                                 <div class="book-title">
-                                    <i class="fas fa-head-side-brain"></i>
+                                    <div class="icon-stack">
+                                        <i class="fas fa-head-side-brain main-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                    </div>
                                     <h3>Introduction to Psychology</h3>
                                     <p>LibreTexts</p>
                                 </div>
@@ -408,7 +451,11 @@
                         <div class="article-image">
                             <div class="placeholder-image" style="background: var(--mint-500); height: 200px;">
                                 <div class="article-title">
-                                    <i class="fas fa-brain"></i>
+                                    <div class="icon-stack">
+                                        <i class="fas fa-brain main-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                    </div>
                                     <h3>Improving Your Concentration</h3>
                                     <p>KSU Counseling Services</p>
                                 </div>
@@ -430,7 +477,11 @@
                         <div class="article-image">
                             <div class="placeholder-image" style="background: var(--mint-600); height: 200px;">
                                 <div class="article-title">
-                                    <i class="fas fa-users"></i>
+                                    <div class="icon-stack">
+                                        <i class="fas fa-users main-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                    </div>
                                     <h3>Social Psychology Studies</h3>
                                     <p>Research Collection</p>
                                 </div>
@@ -452,7 +503,11 @@
                         <div class="article-image">
                             <div class="placeholder-image" style="background: var(--mint-700); height: 200px;">
                                 <div class="article-title">
-                                    <i class="fas fa-microscope"></i>
+                                    <div class="icon-stack">
+                                        <i class="fas fa-microscope main-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                        <i class="fas fa-check floating-icon"></i>
+                                    </div>
                                     <h3>Psychology Research Papers</h3>
                                     <p>Academic Collection</p>
                                 </div>
@@ -484,7 +539,11 @@
             <div class="assessments-grid">
                 <div class="assessment-card">
                     <div class="assessment-icon">
-                        <i class="fas fa-brain"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-brain main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <h3>Mental Health Screening</h3>
                     <p>Quick assessment by Mental Health America to check your mental health status.</p>
@@ -497,7 +556,11 @@
 
                 <div class="assessment-card">
                     <div class="assessment-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-chart-line main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <h3>16 Personality Test</h3>
                     <p>The popular Myers-Briggs (MBTI) based personality assessment.</p>
@@ -510,7 +573,11 @@
 
                 <div class="assessment-card">
                     <div class="assessment-icon">
-                        <i class="fas fa-wind"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-wind main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <h3>Anxiety Test</h3>
                     <p>GAD-7 anxiety assessment tool by Psychology Today.</p>
@@ -523,7 +590,11 @@
 
                 <div class="assessment-card">
                     <div class="assessment-icon">
-                        <i class="fas fa-smile"></i>
+                        <div class="icon-stack">
+                            <i class="fas fa-smile main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
                     </div>
                     <h3>Depression Screening</h3>
                     <p>PHQ-9 depression screening by Patient Health Questionnaire.</p>
@@ -540,151 +611,191 @@
         </div>
     </section>
 
-    <section id="psychologists" class="psychologists scroll-reveal">
-        <div class="container">
-            <h2>Our Psychology Experts</h2>
-            <p class="section-subtitle">Meet our team of experienced and certified professionals</p>
-            <div class="psychologists-grid">
-                <div class="psychologist-card">
-                    <div class="psychologist-image">
-                        <img src="img/psychologists/expert1.jpg" alt="Dr. Sarah Johnson">
-                        <div class="availability online"></div>
+    <section class="psychology-experts">
+        <h2>Our Psychology Experts</h2>
+        
+        <!-- Existing experts grid first -->
+        <div class="experts-grid">
+            <div class="expert-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop" alt="Dr. Sarah Johnson" class="expert-img">
+                <div class="expert-info">
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p class="expert-title">Clinical Psychologist, Ph.D.</p>
+                    <div class="expert-specialties">
+                        <span class="specialty-tag">Anxiety</span>
+                        <span class="specialty-tag">Depression</span>
+                        <span class="specialty-tag">Trauma</span>
                     </div>
-                    <div class="psychologist-info">
-                        <h3>Dr. Sarah Johnson</h3>
-                        <p class="specialty">Clinical Psychology</p>
-                        <p class="description">Specializing in anxiety, depression, and trauma recovery.</p>
-                        <div class="psychologist-badges">
-                            <span class="badge"><i class="fas fa-graduation-cap"></i> PhD Psychology</span>
-                            <span class="badge"><i class="fas fa-star"></i> 15+ Years Experience</span>
-                        </div>
-                        <div class="expertise-tags">
-                            <span>Anxiety</span>
-                            <span>Depression</span>
-                            <span>Trauma</span>
-                        </div>
-                        <div class="psychologist-actions">
-                            <a href="#book" class="btn btn-primary">Book Session</a>
-                            <a href="#profile" class="btn btn-outline">View Profile</a>
-                        </div>
+                    <div class="expert-details">
+                        <p><i class="fas fa-graduation-cap"></i> Harvard University Graduate</p>
+                        <p><i class="fas fa-clock"></i> 15+ Years Experience</p>
+                        <p><i class="fas fa-language"></i> English, Spanish</p>
                     </div>
-                </div>
-                
-                <div class="psychologist-card">
-                    <div class="psychologist-image">
-                        <img src="img/psychologists/expert2.jpg" alt="Dr. Michael Chen">
-                        <div class="availability busy"></div>
-                    </div>
-                    <div class="psychologist-info">
-                        <h3>Dr. Michael Chen</h3>
-                        <p class="specialty">Cognitive Behavioral Therapy</p>
-                        <p class="description">Expert in stress management and behavioral change.</p>
-                        <div class="psychologist-badges">
-                            <span class="badge"><i class="fas fa-graduation-cap"></i> PsyD</span>
-                            <span class="badge"><i class="fas fa-star"></i> 10+ Years Experience</span>
-                        </div>
-                        <div class="expertise-tags">
-                            <span>CBT</span>
-                            <span>Stress</span>
-                            <span>Anxiety</span>
-                        </div>
-                        <div class="psychologist-actions">
-                            <a href="#book" class="btn btn-primary">Book Session</a>
-                            <a href="#profile" class="btn btn-outline">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="psychologist-card">
-                    <div class="psychologist-image">
-                        <img src="img/psychologists/expert3.jpg" alt="Dr. Emily Martinez">
-                        <div class="availability online"></div>
-                    </div>
-                    <div class="psychologist-info">
-                        <h3>Dr. Emily Martinez</h3>
-                        <p class="specialty">Child Psychology</p>
-                        <p class="description">Specialized in child development and family therapy.</p>
-                        <div class="psychologist-badges">
-                            <span class="badge"><i class="fas fa-graduation-cap"></i> PhD Child Psychology</span>
-                            <span class="badge"><i class="fas fa-star"></i> 12+ Years Experience</span>
-                        </div>
-                        <div class="expertise-tags">
-                            <span>Children</span>
-                            <span>Family</span>
-                            <span>Development</span>
-                        </div>
-                        <div class="psychologist-actions">
-                            <a href="#book" class="btn btn-primary">Book Session</a>
-                            <a href="#profile" class="btn btn-outline">View Profile</a>
-                        </div>
+                    <p class="expert-bio">Dr. Johnson specializes in treating anxiety and depression using evidence-based approaches. She's known for her compassionate care and expertise in cognitive behavioral therapy.</p>
+                    <div class="availability-info">
+                        <span class="available-badge"><i class="fas fa-check-circle"></i> Available for New Patients</span>
+                        <span class="session-info">Next Available: Tomorrow</span>
                     </div>
                 </div>
             </div>
-            <div class="view-all-container">
-                <a href="#all-psychologists" class="btn btn-outline">View All Psychologists</a>
+
+            <div class="expert-card">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop" alt="Dr. Michael Chen" class="expert-img">
+                <div class="expert-info">
+                    <h3>Dr. Michael Chen</h3>
+                    <p class="expert-title">Behavioral Therapist, Psy.D.</p>
+                    <div class="expert-specialties">
+                        <span class="specialty-tag">Addiction</span>
+                        <span class="specialty-tag">ADHD</span>
+                        <span class="specialty-tag">Stress</span>
+                    </div>
+                    <div class="expert-details">
+                        <p><i class="fas fa-graduation-cap"></i> Stanford University Graduate</p>
+                        <p><i class="fas fa-clock"></i> 10+ Years Experience</p>
+                        <p><i class="fas fa-language"></i> English, Mandarin</p>
+                    </div>
+                    <p class="expert-bio">Dr. Chen combines behavioral therapy with mindfulness techniques to help clients overcome addiction and manage ADHD. His approach focuses on practical, actionable strategies.</p>
+                    <div class="availability-info">
+                        <span class="available-badge"><i class="fas fa-check-circle"></i> Available for New Patients</span>
+                        <span class="session-info">Next Available: This Week</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expert-card">
+                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=300&fit=crop" alt="Dr. Emma Rodriguez" class="expert-img">
+                <div class="expert-info">
+                    <h3>Dr. Emma Rodriguez</h3>
+                    <p class="expert-title">Family Therapist, Ph.D.</p>
+                    <div class="expert-specialties">
+                        <span class="specialty-tag">Relationships</span>
+                        <span class="specialty-tag">Parenting</span>
+                        <span class="specialty-tag">Couples</span>
+                    </div>
+                    <div class="expert-details">
+                        <p><i class="fas fa-graduation-cap"></i> Columbia University Graduate</p>
+                        <p><i class="fas fa-clock"></i> 12+ Years Experience</p>
+                        <p><i class="fas fa-language"></i> English, Spanish, Portuguese</p>
+                    </div>
+                    <p class="expert-bio">Dr. Rodriguez specializes in family dynamics and relationship counseling. Her warm approach helps families navigate challenges and build stronger connections.</p>
+                    <div class="availability-info">
+                        <span class="available-badge"><i class="fas fa-check-circle"></i> Available for New Patients</span>
+                        <span class="session-info">Next Available: This Week</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Feature cards now appear below the experts grid -->
+        <div class="expert-features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <div class="icon-stack">
+                        <i class="fas fa-certificate main-icon"></i>
+                        <i class="fas fa-check floating-icon"></i>
+                        <i class="fas fa-check floating-icon"></i>
+                    </div>
+                </div>
+                <h3>Licensed Professionals</h3>
+                <p>All our psychologists are fully licensed and verified.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <div class="icon-stack">
+                        <i class="fas fa-calendar-alt main-icon"></i>
+                        <i class="fas fa-check floating-icon"></i>
+                        <i class="fas fa-check floating-icon"></i>
+                    </div>
+                </div>
+                <h3>Flexible Scheduling</h3>
+                <p>Book sessions at times that work best for you.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <div class="icon-stack">
+                        <i class="fas fa-video main-icon"></i>
+                        <i class="fas fa-check floating-icon"></i>
+                        <i class="fas fa-check floating-icon"></i>
+                    </div>
+                </div>
+                <h3>Online & In-Person</h3>
+                <p>Choose between virtual or face-to-face sessions.</p>
             </div>
         </div>
     </section>
 
-    <section class="why-choose-us scroll-reveal">
-        <div class="container">
-            <h2>Why Choose Our Psychology Services?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-certificate"></i>
-                    <h3>Licensed Professionals</h3>
-                    <p>All our psychologists are fully licensed and verified.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-lock"></i>
-                    <h3>Confidential Care</h3>
-                    <p>Your privacy and confidentiality are our top priorities.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Flexible Scheduling</h3>
-                    <p>Book sessions at times that work best for you.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Online & In-Person</h3>
-                    <p>Choose between virtual or face-to-face sessions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <section id="features" class="features scroll-reveal">
         <div class="container">
             <h2>How Can We Help?</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-heart feature-icon"></i>
+                    <div class="feature-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-heart main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
+                    </div>
                     <h3>Build Harmonious Relationships</h3>
                     <p>Develop deeper connections with loved ones and improve communication.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-brain feature-icon"></i>
+                    <div class="feature-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-brain main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
+                    </div>
                     <h3>Cope with Stress & Anxiety</h3>
                     <p>Learn effective techniques to manage stress and overcome anxiety.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-user-check feature-icon"></i>
+                    <div class="feature-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-user-check main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
+                    </div>
                     <h3>Boost Self-Esteem</h3>
                     <p>Build confidence and learn to accept yourself fully.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <div class="feature-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-shield-alt main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
+                    </div>
                     <h3>Set Healthy Boundaries</h3>
                     <p>Learn to say no and protect your personal space.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-sync feature-icon"></i>
+                    <div class="feature-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-sync main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
+                    </div>
                     <h3>Navigate Life Changes</h3>
                     <p>Get support during transitions and major life events.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-briefcase feature-icon"></i>
+                    <div class="feature-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-briefcase main-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                            <i class="fas fa-check floating-icon"></i>
+                        </div>
+                    </div>
                     <h3>Work-Life Balance</h3>
                     <p>Find harmony between your career and personal life.</p>
                 </div>
@@ -692,286 +803,292 @@
         </div>
     </section>
 
-    <section class="therapist-selection scroll-reveal">
-        <div class="container">
-            <h2>How We Select Our Therapists</h2>
-            <p class="subtitle">Only 9% of specialists pass our selection process</p>
-            <div class="selection-criteria">
-                <div class="criteria-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Education</h3>
-                    <p>We verify degrees in psychology, psychiatry, or related fields.</p>
-                </div>
-                <div class="criteria-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Experience</h3>
-                    <p>Minimum 3 years of confirmed practice required.</p>
-                </div>
-                <div class="criteria-item">
-                    <i class="fas fa-star"></i>
-                    <h3>Recommendations</h3>
-                    <p>References from supervisors or professional associations.</p>
-                </div>
-                <div class="criteria-item">
-                    <i class="fas fa-comments"></i>
-                    <h3>Interview</h3>
-                    <p>Thorough assessment of skills and successful cases.</p>
-                </div>
-                <div class="criteria-item">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Ethics</h3>
-                    <p>Alignment with our values and professional standards.</p>
-                </div>
-                <div class="criteria-item">
-                    <i class="fas fa-book"></i>
-                    <h3>Continuing Education</h3>
-                    <p>Commitment to ongoing professional development.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
-    <section id="testimonials" class="testimonials scroll-reveal">
+    <section class="testimonials">
         <div class="container">
             <h2>What Our Clients Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Sarah M." class="testimonial-image">
-                    <p>"SoulCare has transformed my life. The personalized approach and expert guidance helped me find my inner peace."</p>
-                    <p><strong>- Sarah M.</strong></p>
+            
+            <div class="testimonials-container">
+                <button class="nav-btn prev-btn" aria-label="Previous testimonials">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="testimonials-viewport">
+                    <div class="testimonials-track">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="client-image">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" alt="Sarah M.">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★★</div>
+                                <p>"The therapy sessions have been transformative. Dr. Johnson's approach helped me overcome my anxiety."</p>
+                                <h4>Sarah M.</h4>
+                                <span>Client for 6 months</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="client-image">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" alt="Michael R.">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★★</div>
+                                <p>"The online sessions are so convenient, and Dr. Chen's expertise in ADHD management has helped me immensely."</p>
+                                <h4>Michael R.</h4>
+                                <span>Client for 1 year</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="client-image">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" alt="Emily K.">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★★</div>
+                                <p>"The family counseling sessions helped us rebuild our relationships. We're communicating better than ever."</p>
+                                <h4>Emily K.</h4>
+                                <span>Client for 8 months</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card">
+                            <div class="client-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="David L.">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★½</div>
+                                <p>"The cognitive behavioral therapy techniques have given me practical tools to manage my stress and anxiety."</p>
+                                <h4>David L.</h4>
+                                <span>Client for 3 months</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-card">
+                            <div class="client-image">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop" alt="Jennifer P.">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★★</div>
+                                <p>"The flexible scheduling made it possible for me to consistently attend therapy. It's been life-changing."</p>
+                                <h4>Jennifer P.</h4>
+                                <span>Client for 4 months</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" alt="John D." class="testimonial-image">
-                    <p>"The flexibility and support I received were incredible. I couldn't have asked for a better wellness journey."</p>
-                    <p><strong>- John D.</strong></p>
-                </div>
-                <div class="testimonial-card">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" alt="Emily R." class="testimonial-image">
-                    <p>"Professional, caring, and effective. SoulCare helped me overcome my challenges and find balance in life."</p>
-                    <p><strong>- Emily R.</strong></p>
-                </div>
+
+                <button class="nav-btn next-btn" aria-label="Next testimonials">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <section class="platform-features scroll-reveal">
+
+
+
+    <div class="chatbot-cta">
         <div class="container">
-            <h2>Our Platform is Simple and Convenient</h2>
-            <p class="subtitle">This isn't just our opinion - our users agree</p>
-            <div class="platform-grid">
-                <div class="platform-item">
-                    <i class="fas fa-video"></i>
-                    <h3>Secure Video Sessions</h3>
-                    <p>All consultations take place in a protected personal account</p>
+            <div class="chatbot-content">
+                <div class="chatbot-left">
+                    <div class="chatbot-icon">
+                        <div class="icon-stack">
+                            <i class="fas fa-heart main-icon"></i>
+                            <i class="fas fa-comment-dots floating-icon"></i>
+                            <i class="fas fa-sparkles floating-icon"></i>
+                        </div>
+                        <div class="pulse-rings">
+                            <div class="ring"></div>
+                            <div class="ring"></div>
+                            <div class="ring"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="platform-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Easy Schedule Management</h3>
-                    <p>Book, reschedule, and receive reminders for your sessions</p>
-                </div>
-                <div class="platform-item">
-                    <i class="fas fa-headset"></i>
-                    <h3>Support at Every Step</h3>
-                    <p>We answer questions, provide guidance, and offer support</p>
-                </div>
-                <div class="platform-item">
-                    <i class="fas fa-credit-card"></i>
-                    <h3>Flexible Payment Options</h3>
-                    <p>Pay with cards from any country, anywhere in the world</p>
+                <div class="chatbot-text">
+                    <h3>Meet SoulCare, Your Wellness Guide</h3>
+                    <p>Have questions or need someone to talk to? SoulCare is here to listen, support, and guide you on your wellness journey. Available anytime for a friendly chat.</p>
+                    <div class="chatbot-features">
+                        <div class="feature">
+                            <i class="fas fa-heart-circle"></i>
+                            <span>Caring Support</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-comments"></i>
+                            <span>Friendly Chat</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>Personal Guidance</span>
+                        </div>
+                    </div>
+                    <button class="chatbot-btn open-chatbot">
+                        <i class="fas fa-message-smile"></i>
+                        Chat with SoulCare
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="cta scroll-reveal">
-        <div class="container">
-            <h2>Ready to Start Your Journey?</h2>
-            <p>Join thousands of others who have found their path to wellness with SoulCare.</p>
-            <a href="#contact" class="btn btn-primary">Begin Your Journey</a>
-        </div>
-    </section>
 
-    <section class="faq scroll-reveal">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>What is a psychologist?</h3>
+
+    
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is a psychologist?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
                     <p>A psychologist is a mental health professional who helps people understand and manage their thoughts, feelings, and behaviors.</p>
                 </div>
-                <div class="faq-item">
-                    <h3>How do I know if I need a psychologist?</h3>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I know if I need a psychologist?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
                     <p>If you're experiencing persistent emotional difficulties, relationship issues, or feeling stuck in life, a psychologist can help.</p>
                 </div>
-                <div class="faq-item">
-                    <h3>How do I choose the right psychologist?</h3>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I choose the right psychologist?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
                     <p>Consider their specialization, experience, and approach. Our matching system helps find the best fit for your needs.</p>
                 </div>
-                <div class="faq-item">
-                    <h3>How much does therapy cost?</h3>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How much does therapy cost?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
                     <p>Individual sessions start at $50 for 50 minutes. Couples sessions are $75 for 90 minutes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="success-stories scroll-reveal">
+
+
+
+
+    <section class="games-section scroll-reveal">
         <div class="container">
-            <h2>Transformation Stories</h2>
-            <p class="subtitle">Real journeys of healing and growth from our clients</p>
+            <h2>Wellness Games & Tools</h2>
+            <p class="section-subtitle">Interactive experiences designed to boost your mental well-being and creativity</p>
             
-            <div class="stories-slider">
-                <div class="story-card">
-                    <div class="story-image">
-                        <img src="img/testimonial-1.png" alt="Success Story">
-                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                    </div>
-                    <div class="story-content">
-                        <h3>From Anxiety to Peace</h3>
-                        <p class="client-name">Maria, 34</p>
-                        <p class="story-text">"After struggling with anxiety for over a decade, I found my therapist through SoulCare. Six months later, I've developed coping mechanisms I never thought possible. My panic attacks have reduced by 90%, and I'm finally enjoying life again."</p>
-                        <div class="story-metrics">
-                            <div class="metric">
-                                <span class="metric-value">12</span>
-                                <span class="metric-label">Sessions</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">90%</span>
-                                <span class="metric-label">Improvement</span>
+            <div class="games-grid">
+                <!-- Calm Breathing -->
+                <a href="https://www.calm.com/breathe" target="_blank" rel="noopener" class="game-card">
+                    <div class="game-content">
+                        <div class="game-icon-wrapper">
+                            <div class="icon-stack">
+                                <div class="game-icon main-icon">🫁</div>
+                                <i class="fas fa-heart float-subtle"></i>
+                                <i class="fas fa-wind floating-icon"></i>
                             </div>
                         </div>
+                        <h3>Calm Breathing</h3>
+                        <p>Follow the animated breathing bubble to reduce stress and anxiety. Perfect for quick relaxation breaks.</p>
+                        <div class="game-meta">
+                            <span><i class="far fa-clock"></i> 5-10 mins</span>
+                            <span><i class="far fa-star"></i> Beginner</span>
+                        </div>
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                            Start Exercise
+                        </button>
                     </div>
-                </div>
-                
-                <div class="story-card">
-                    <div class="story-image">
-                        <img src="img/testimonial-2.png" alt="Success Story">
-                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                    </div>
-                    <div class="story-content">
-                        <h3>Rebuilding After Loss</h3>
-                        <p class="client-name">James, 42</p>
-                        <p class="story-text">"When I lost my spouse, I couldn't see a way forward. My SoulCare therapist guided me through grief with compassion and expertise. Today, I honor that love while building a new chapter."</p>
-                        <div class="story-metrics">
-                            <div class="metric">
-                                <span class="metric-value">24</span>
-                                <span class="metric-label">Sessions</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">8</span>
-                                <span class="metric-label">Months</span>
+                </a>
+
+                <!-- AutoDraw -->
+                <a href="https://www.autodraw.com/" target="_blank" rel="noopener" class="game-card">
+                    <div class="game-content">
+                        <div class="game-icon-wrapper">
+                            <div class="icon-stack">
+                                <div class="game-icon main-icon">🎨</div>
+                                <i class="fas fa-paint-brush floating-icon"></i>
+                                <i class="fas fa-palette floating-icon"></i>
                             </div>
                         </div>
+                        <h3>AutoDraw</h3>
+                        <p>AI-powered drawing tool that turns your simple sketches into polished artwork. Great for creative expression.</p>
+                        <div class="game-meta">
+                            <span><i class="far fa-clock"></i> Unlimited</span>
+                            <span><i class="far fa-user"></i> All Levels</span>
+                        </div>
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                            Start Drawing
+                        </button>
                     </div>
-                </div>
-                
-                <div class="story-card">
-                    <div class="story-image">
-                        <img src="img/testimonial-3.png" alt="Success Story">
-                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                    </div>
-                    <div class="story-content">
-                        <h3>Marriage Transformed</h3>
-                        <p class="client-name">Sara & Daniel</p>
-                        <p class="story-text">"We were on the brink of divorce when we started couples therapy on SoulCare. Our psychologist helped us uncover communication patterns that were destroying our relationship and taught us new ways to connect. We're grateful every day for this second chance."</p>
-                        <div class="story-metrics">
-                            <div class="metric">
-                                <span class="metric-value">16</span>
-                                <span class="metric-label">Sessions</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">100%</span>
-                                <span class="metric-label">Committed</span>
+                </a>
+
+                <!-- Quick Draw -->
+                <a href="https://quickdraw.withgoogle.com/" target="_blank" rel="noopener" class="game-card">
+                    <div class="game-content">
+                        <div class="game-icon-wrapper">
+                            <div class="icon-stack">
+                                <div class="game-icon main-icon">✏️</div>
+                                <i class="fas fa-pencil-alt floating-icon"></i>
+                                <i class="fas fa-magic floating-icon"></i>
                             </div>
                         </div>
+                        <h3>Quick, Draw!</h3>
+                        <p>Test your drawing skills while helping AI learn. Fun, fast-paced game that challenges your creativity.</p>
+                        <div class="game-meta">
+                            <span><i class="far fa-clock"></i> 20 secs/round</span>
+                            <span><i class="fas fa-chart-line"></i> Intermediate</span>
+                        </div>
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                            Play Game
+                        </button>
                     </div>
-                </div>
-            </div>
-            
-            <div class="slider-controls">
-                <button class="prev-story"><i class="fas fa-chevron-left"></i></button>
-                <div class="story-dots">
-                    <span class="story-dot active"></span>
-                    <span class="story-dot"></span>
-                    <span class="story-dot"></span>
-                </div>
-                <button class="next-story"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
+                </a>
 
-    <section class="platform-features scroll-reveal">
-        <div class="container">
-            <h2>Our Platform is Simple and Convenient</h2>
-            <p class="subtitle">This isn't just our opinion - our users agree</p>
-            <div class="platform-grid">
-                <div class="platform-item">
-                    <i class="fas fa-video"></i>
-                    <h3>Secure Video Sessions</h3>
-                    <p>All consultations take place in a protected personal account</p>
-                </div>
-                <div class="platform-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Easy Schedule Management</h3>
-                    <p>Book, reschedule, and receive reminders for your sessions</p>
-                </div>
-                <div class="platform-item">
-                    <i class="fas fa-headset"></i>
-                    <h3>Support at Every Step</h3>
-                    <p>We answer questions, provide guidance, and offer support</p>
-                </div>
-                <div class="platform-item">
-                    <i class="fas fa-credit-card"></i>
-                    <h3>Flexible Payment Options</h3>
-                    <p>Pay with cards from any country, anywhere in the world</p>
-                </div>
+                <!-- Human Benchmark -->
+                <a href="https://humanbenchmark.com/" target="_blank" rel="noopener" class="game-card">
+                    <div class="game-content">
+                        <div class="game-icon-wrapper">
+                            <div class="icon-stack">
+                                <div class="game-icon main-icon">🎯</div>
+                                <i class="fas fa-brain floating-icon"></i>
+                                <i class="fas fa-chart-line floating-icon"></i>
+                            </div>
+                        </div>
+                        <h3>Human Benchmark</h3>
+                        <p>Test your cognitive abilities with reaction time, memory, and perception challenges.</p>
+                        <div class="game-meta">
+                            <span><i class="far fa-clock"></i> 2-5 mins/test</span>
+                            <span><i class="fas fa-brain"></i> Challenging</span>
+                        </div>
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                            Test Skills
+                        </button>
+                    </div>
+                </a>
             </div>
-        </div>
-    </section>
 
-    <section class="cta scroll-reveal">
-        <div class="container">
-            <h2>Ready to Start Your Journey?</h2>
-            <p>Join thousands of others who have found their path to wellness with SoulCare.</p>
-            <a href="#contact" class="btn btn-primary">Begin Your Journey</a>
-        </div>
-    </section>
-
-    <section class="enhanced-features scroll-reveal">
-        <div class="container">
-            <h2>Enhanced Wellness Tools</h2>
-            <div class="enhanced-grid">
-                <div class="enhanced-card">
-                    <div class="enhanced-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="enhanced-content">
-                        <h3>AI Wellness Assistant</h3>
-                        <p>Our AI-powered chatbot provides instant support, guided meditation, mood tracking, and personalized recommendations anytime you need help.</p>
-                        <a href="#" class="btn btn-primary open-chatbot">Try Now</a>
-                    </div>
-                </div>
-                <div class="enhanced-card">
-                    <div class="enhanced-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="enhanced-content">
-                        <h3>Sleep Improvement Program</h3>
-                        <p>Track your sleep patterns, receive personalized recommendations, and access guided sleep meditations.</p>
-                        <a href="#sleep" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                <div class="enhanced-card">
-                    <div class="enhanced-icon">
-                        <i class="fas fa-heart-rate"></i>
-                    </div>
-                    <div class="enhanced-content">
-                        <h3>Stress Management Tools</h3>
-                        <p>Interactive tools to identify stress triggers, breathing exercises, and guided relaxation techniques.</p>
-                        <a href="#stress-tools" class="btn btn-outline">Explore</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1265,74 +1382,56 @@
         });
     </script>
 
-    <!-- Add this script before the closing body tag -->
+    <!-- Add this new script for testimonials -->
     <script>
-        // Story slider functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const storyCards = document.querySelectorAll('.story-card');
-            const storyDots = document.querySelectorAll('.story-dot');
-            const prevStory = document.querySelector('.prev-story');
-            const nextStory = document.querySelector('.next-story');
-            let currentStory = 0;
-            let storyInterval;
-            
-            function showStory(index) {
-                storyCards.forEach(card => {
-                    card.style.display = 'none';
-                });
-                storyDots.forEach(dot => dot.classList.remove('active'));
+            const track = document.querySelector('.testimonials-track');
+            const cards = track.querySelectorAll('.testimonial-card');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            let currentIndex = 0;
+            const totalCards = cards.length;
+            const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+
+            function updateSlider() {
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 30; // gap between cards
+                const offset = currentIndex * (cardWidth + gap);
+                track.style.transform = `translateX(-${offset}px)`;
                 
-                storyCards[index].style.display = 'flex';
-                storyDots[index].classList.add('active');
-                currentStory = index;
+                // Update button states
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= totalCards - cardsToShow;
             }
-            
-            function nextStorySlide() {
-                currentStory = (currentStory + 1) % storyCards.length;
-                showStory(currentStory);
+
+            function handleResize() {
+                const newCardsToShow = window.innerWidth <= 768 ? 1 : 3;
+                if (newCardsToShow !== cardsToShow) {
+                    currentIndex = 0;
+                    updateSlider();
+                }
             }
-            
-            function prevStorySlide() {
-                currentStory = (currentStory - 1 + storyCards.length) % storyCards.length;
-                showStory(currentStory);
-            }
-            
-            function startStorySlideShow() {
-                storyInterval = setInterval(nextStorySlide, 6000);
-            }
-            
-            function stopStorySlideShow() {
-                clearInterval(storyInterval);
-            }
-            
-            nextStory.addEventListener('click', () => {
-                stopStorySlideShow();
-                nextStorySlide();
-                startStorySlideShow();
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
             });
-            
-            prevStory.addEventListener('click', () => {
-                stopStorySlideShow();
-                prevStorySlide();
-                startStorySlideShow();
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalCards - cardsToShow) {
+                    currentIndex++;
+                    updateSlider();
+                }
             });
-            
-            storyDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    stopStorySlideShow();
-                    showStory(index);
-                    startStorySlideShow();
-                });
-            });
-            
-            // Initialize first story
-            showStory(0);
-            startStorySlideShow();
-            
-            // Initialize all non-active stories to display:none
-            for(let i = 1; i < storyCards.length; i++) {
-                storyCards[i].style.display = 'none';
-            }
+
+            // Handle window resize
+            window.addEventListener('resize', handleResize);
+
+            // Initial setup
+            updateSlider();
         });
     </script>
 
@@ -1402,6 +1501,28 @@
                 });
             });
         });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
     </script>
 </body>
 </html> 
