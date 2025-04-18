@@ -2848,7 +2848,19 @@ section {
 }
 
 .faq-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 204, 160, 0.1);
+    background: var(--mint-50);
+    border-radius: 8px;
+}
+
+.faq-item:hover .faq-answer {
+    max-height: 200px;
+    opacity: 1;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+
+.faq-item:hover .faq-icon {
+    transform: rotate(45deg);
 }
 
 .faq-question {
@@ -2879,9 +2891,9 @@ section {
 
 .faq-answer {
     max-height: 0;
+    opacity: 0;
     overflow: hidden;
     transition: all 0.3s ease;
-    background: white;
 }
 
 .faq-answer p {
@@ -2900,7 +2912,14 @@ section {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px; /* Adjust this value based on your content */
+    display: block;
+    max-height: 500px;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover .faq-icon {
+    transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {

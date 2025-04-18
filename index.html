@@ -1215,26 +1215,6 @@
             const header = document.querySelector('header');
             let lastScroll = 0;
             
-            // Remove or comment out this code block
-            /*
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                
-                if (currentScroll > lastScroll && currentScroll > 100) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-                
-                if (currentScroll > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-                
-                lastScroll = currentScroll;
-            });
-            */
 
             // Enhanced slider functionality
             const slides = document.querySelectorAll('.slide');
@@ -1481,6 +1461,7 @@
         });
     </script>
 
+    <!-- Remove or comment out this script block
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const faqItems = document.querySelectorAll('.faq-item');
@@ -1502,5 +1483,6 @@
         });
     });
     </script>
+    -->
 </body>
 </html> 
