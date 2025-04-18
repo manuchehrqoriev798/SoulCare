@@ -1586,7 +1586,7 @@ section {
     padding: 35px;
     transition: all 0.3s ease;
     text-align: center;
-    border: 3px solid var(--mint-600);  // Added border
+    border: 3px solid var(--mint-600);  
     position: relative;
     overflow: hidden;
 }
@@ -1703,7 +1703,7 @@ section {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    border: 3px solid var(--mint-600);  // Added border
+    border: 3px solid var(--mint-600);  
 }
 
 .book-card:hover {
@@ -1794,7 +1794,7 @@ section {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border: 3px solid var(--mint-600);  // Added border
+    border: 3px solid var(--mint-600);  
 }
 
 .video-card:hover {
@@ -1819,28 +1819,7 @@ section {
     transform: scale(1.05);
 }
 
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.video-card:hover .play-button {
-    background: #7579e7;
-    transform: translate(-50%, -50%) scale(1.1);
-}
 
 .video-details {
     padding: 20px;
@@ -1885,7 +1864,7 @@ section {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border: 3px solid var(--mint-600);  // Added border
+    border: 3px solid var(--mint-600);  
     display: flex;
     flex-direction: column;
 }
@@ -2272,18 +2251,17 @@ section {
 }
 
 .btn-resource {
+    text-decoration: none;  /* Add this line */
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px 20px;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
     background: var(--mint-50);
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 30px;
-    transition: all 0.3s ease;
+    color: var(--mint-900);
+    border-radius: 0.5rem;
     font-weight: 500;
-    width: 100%;
+    transition: all 0.3s ease;
+    border: 3px solid var(--mint-600);
 }
 
 .btn-resource i {
@@ -4340,7 +4318,7 @@ iframe[class*="chat"] {
 .video-card .btn-sm.btn-outline,
 .book-card .btn-sm.btn-outline,
 .article-card .btn-sm.btn-outline {
-    color: #000;  // Changed to black
+    color: #000;  
     border: 3px solid var(--mint-600);
 }
 
@@ -4348,6 +4326,6 @@ iframe[class*="chat"] {
 .book-card .btn-sm.btn-outline:hover,
 .article-card .btn-sm.btn-outline:hover {
     background-color: var(--mint-600);
-    color: #000;  // Keeps text black on hover
+    color: #000;  
 }
 
