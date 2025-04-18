@@ -1586,7 +1586,7 @@ section {
     padding: 35px;
     transition: all 0.3s ease;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 3px solid var(--mint-600);  // Added border
     position: relative;
     overflow: hidden;
 }
@@ -1703,7 +1703,7 @@ section {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 3px solid var(--mint-600);  // Added border
 }
 
 .book-card:hover {
@@ -1794,7 +1794,7 @@ section {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 3px solid var(--mint-600);  // Added border
 }
 
 .video-card:hover {
@@ -1885,7 +1885,7 @@ section {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 3px solid var(--mint-600);  // Added border
     display: flex;
     flex-direction: column;
 }
@@ -4335,5 +4335,19 @@ iframe[class*="chat"] {
         flex-direction: column;
         padding: 0.75rem;
     }
+}
+
+.video-card .btn-sm.btn-outline,
+.book-card .btn-sm.btn-outline,
+.article-card .btn-sm.btn-outline {
+    color: #000;  // Changed to black
+    border: 3px solid var(--mint-600);
+}
+
+.video-card .btn-sm.btn-outline:hover,
+.book-card .btn-sm.btn-outline:hover,
+.article-card .btn-sm.btn-outline:hover {
+    background-color: var(--mint-600);
+    color: #000;  // Keeps text black on hover
 }
 
