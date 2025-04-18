@@ -85,6 +85,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
+    padding-top: 80px; /* Adjust based on your header height */
 }
 
 .container {
@@ -123,40 +124,46 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
 header.scrolled {
-    box-shadow: 0 5px 20px rgba(0, 153, 120, 0.1);
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
 }
 
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Update nav styles */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: bold;
+    gap: 0.5rem;
     font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-700);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .logo-img {
-    height: 30px;
+    height: 40px;
     width: auto;
-    margin-top: -10px;
 }
 
 .logo:hover {
@@ -165,20 +172,81 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
     list-style: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-links a {
-    color: var(--text-color);
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: var(--gray-700);
     text-decoration: none;
     font-weight: 500;
-    transition: var(--transition);
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
 }
 
-.nav-links a:hover {
-    color: var(--primary-color);
+.nav-links li a:hover {
+    color: var(--primary-600);
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-toggle i {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background: var(--bg-hover);
+    color: var(--primary);
 }
 
 /* Button Styles */
@@ -1060,24 +1128,30 @@ section {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 80px; /* Match your header height */
         left: 0;
         width: 100%;
-        background: var(--white);
-        padding: 20px;
-        box-shadow: var(--shadow);
-        flex-direction: column;
-        align-items: center;
     }
 
     .nav-links.active {
-        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .mobile-menu-btn {
         display: block;
+        font-size: 1.5rem;
+        color: var(--gray-700);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-links .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .slide-content h1 {
@@ -1236,11 +1310,6 @@ section {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
-}
-
-/* Remove spinner buttons from number inputs */
-.auth-modal input[type="number"] {
-    -moz-appearance: textfield;
 }
 
 .auth-modal input[type="number"]::-webkit-outer-spin-button,

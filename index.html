@@ -42,14 +42,24 @@
 
     <header>
         <nav class="container">
-            <a href="#" class="logo"><img src="img/logo.png" alt="SoulCare Logo" class="logo-img">SoulCare</a>
+            <a href="#" class="logo">
+                <img src="img/logo.png" alt="SoulCare Logo" class="logo-img">
+                SoulCare
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#services">Our Services</a></li>
-                <li><a href="index.html#psychologists">Find a Psychologist</a></li>
-                <li><a href="index.html#mental-health">Mental Health Resources</a></li>
-                <li><a href="index.html#assessments">Assessments</a></li>
-                <li><a href="games.html">Wellness Games</a></li>
-                <li><a href="#book-session" class="btn btn-primary">Book a Session</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="videos.html"><i class="fas fa-play-circle"></i> Videos</a></li>
+                        <li><a href="books.html"><i class="fas fa-book"></i> Books</a></li>
+                        <li><a href="articles.html"><i class="fas fa-newspaper"></i> Articles</a></li>
+                    </ul>
+                </li>
+                <li><a href="#assessments">Assessments</a></li>
+                <li><a href="#psychology-experts">Our Psychologists </a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#wellness">Games</a></li>
+                <li><a href="index.html#services" class="btn btn-primary">Book a Session</a></li>
                 <!-- Auth buttons will be injected by auth.js -->
             </ul>
             <div class="mobile-menu-btn">
@@ -134,7 +144,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <div class="icon-stack">How Can We Help?
+                        <div class="icon-stack">
                             <i class="fas fa-user-friends main-icon"></i>
                         </div>
                     </div>
@@ -603,7 +613,7 @@
         </div>
     </section>
 
-    <section class="psychology-experts">
+    <section id="psychology-experts" class="psychology-experts">
         <h2>Our Psychology Experts</h2>
         
         <!-- Existing experts grid first -->
@@ -924,7 +934,7 @@
 
     
 
-    <section class="faq-section">
+    <section id="faq" class="faq-section">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-container">
             <div class="faq-item">
@@ -973,7 +983,7 @@
 
 
 
-    <section class="games-section scroll-reveal">
+    <section id="wellness" class="games-section scroll-reveal">
         <div class="container">
             <h2>Wellness Games & Tools</h2>
             <p class="section-subtitle">Interactive experiences designed to boost your mental well-being and creativity</p>
@@ -1102,7 +1112,7 @@
                         <li><a href="#assessments">Mental Health Tests</a></li>
                         <li><a href="#library">Self-Help Library</a></li>
                         <li><a href="#crisis">Crisis Support</a></li>
-                        <li><a href="games.html">Wellness Games</a></li>
+                        <li><a href="#wellness">Wellness Games</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
