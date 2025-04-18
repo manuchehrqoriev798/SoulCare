@@ -699,7 +699,7 @@ header.scrolled {
     border-radius: 16px;
     padding: 28px;
     box-shadow: 0 10px 20px rgba(0, 204, 160, 0.1);
-    border: 1px solid var(--mint-200);
+    border: 3px solid var(--mint-600);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(to bottom, #ffffff, var(--mint-50));
 }
@@ -2840,7 +2840,7 @@ section {
 }
 
 .faq-item {
-    border: 1px solid var(--mint-200);
+    border: 3px solid var(--mint-200);  
     border-radius: 8px;
     overflow: hidden;
     background: white;
@@ -3416,6 +3416,8 @@ section {
     cursor: pointer;
     transition: all 0.3s ease;
     animation: slideInRight 0.8s ease-out 0.6s backwards;
+    border: 3px solid var(--mint-800);
+
 }
 
 .chatbot-btn i {
