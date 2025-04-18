@@ -4259,3 +4259,81 @@ iframe[class*="chat"] {
     scrollbar-color: var(--mint-600) #f5f5f5;
 }
 
+/* Assessments Section Cards */
+.assessments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Changed to 2 columns */
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    max-width: 1200px;  /* Added max-width to control layout */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.assessment-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 3px solid var(--mint-600);  /* Added 3px border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.assessment-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--mint-800);  /* Darker border on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Assessment Card Details */
+.assessment-details {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 3px solid var(--mint-400);  /* Added subtle border for details section */
+    background: var(--mint-50);
+}
+
+.assessment-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--mint-900);
+}
+
+/* Assessments Note Section */
+.assessments-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 3px solid var(--mint-600);  /* Added border for note section */
+    background: var(--mint-50);
+}
+
+.assessments-note p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--mint-900);
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .assessments-grid {
+        grid-template-columns: 1fr;  /* Single column on mobile */
+    }
+    
+    .assessment-card {
+        padding: 1.5rem;
+    }
+    
+    .assessment-details {
+        flex-direction: column;
+        padding: 0.75rem;
+    }
+}
+
