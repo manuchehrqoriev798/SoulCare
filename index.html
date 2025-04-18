@@ -40,7 +40,7 @@
         <div class="loading-spinner"></div>
     </div>
 
-    <header>
+    <header class="fixed-header">
         <nav class="container">
             <a href="#" class="logo">
                 <img src="img/logo.png" alt="SoulCare Logo" class="logo-img">
@@ -56,11 +56,10 @@
                     </ul>
                 </li>
                 <li><a href="#assessments">Assessments</a></li>
-                <li><a href="#psychology-experts">Our Psychologists </a></li>
+                <li><a href="#psychology-experts">Our Psychologists</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#wellness">Games</a></li>
-                <li><a href="index.html#services" class="btn btn-primary">Book a Session</a></li>
-                <!-- Auth buttons will be injected by auth.js -->
+                <li><a href="index.html#services" class="btn btn-primary">Book a Session <i class="fas fa-arrow-right"></i></a></li>
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -1228,6 +1227,8 @@
             const header = document.querySelector('header');
             let lastScroll = 0;
             
+            // Remove or comment out this code block
+            /*
             window.addEventListener('scroll', () => {
                 const currentScroll = window.pageYOffset;
                 
@@ -1245,6 +1246,7 @@
                 
                 lastScroll = currentScroll;
             });
+            */
 
             // Enhanced slider functionality
             const slides = document.querySelectorAll('.slide');
