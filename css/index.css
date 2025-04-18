@@ -3151,12 +3151,14 @@ section {
 }
 
 .game-meta span {
-    background: var(--mint-50);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: 3px solid var(--mint-600);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
 }
 
 .game-meta i {
