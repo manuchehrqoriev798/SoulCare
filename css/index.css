@@ -259,7 +259,9 @@ nav.container {
 }
 
 .dropdown-menu li {
-    padding: 0;
+    list-style: none !important;  /* Remove the dots with !important */
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .dropdown-menu a {
