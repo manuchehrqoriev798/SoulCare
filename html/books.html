@@ -17,16 +17,27 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <header>
+    <header class="fixed-header">
         <nav class="container">
-            <a href="../index.html" class="logo"><img src="../img/logo.png" alt="SoulCare Logo" class="logo-img">SoulCare</a>
+            <a href="#" class="logo">
+                <img src="/img/logo.png" alt="SoulCare Logo" class="logo-img">
+                SoulCare
+            </a>
             <ul class="nav-links">
-                <li><a href="../index.html#services">Our Services</a></li>
-                <li><a href="../index.html#psychologists">Find a Psychologist</a></li>
-                <li><a href="../index.html#mental-health">Mental Health Resources</a></li>
-                <li><a href="../index.html#assessments">Assessments</a></li>
-                <li><a href="../games.html">Wellness Games</a></li>
-                <li><a href="../index.html#book-session" class="btn btn-primary">Book a Session</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="videos.html"><i class="fas fa-play-circle"></i> Videos</a></li>
+                        <li><a href="books.html"><i class="fas fa-book"></i> Books</a></li>
+                        <li><a href="articles.html"><i class="fas fa-newspaper"></i> Articles</a></li>
+                    </ul>
+                </li>
+                <li><a href="#assessments">Assessments</a></li>
+                <li><a href="#psychology-experts">Our Psychologists</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#wellness">Games</a></li>
+                <li><a href="../index.html#services" class="btn btn-primary">Book a Session <i class="fas fa-arrow-right"></i></a></li>
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -36,7 +47,7 @@
 
     <section class="books-section">
         <div class="container">
-            <h1>Psychology and Mental Health Books</h1>
+            <h1 style="font-size: 3rem; text-align: center;">Psychology and Mental Health Books</h1>
             <p class="section-subtitle">Explore our comprehensive collection of books on psychology, mental health, and personal development.</p>
             
             <div class="books-grid">
@@ -423,9 +434,44 @@
         </div>
     </section>
 
-    <!-- Include footer with updated paths -->
     <footer>
-        <!-- Copy footer from index.html and update paths with ../ -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/html/videos.html"><i class="fas fa-play-circle"></i>Videos</a></li>
+                            <li><a href="/html/books.html"><i class="fas fa-book"></i>Books</a></li>
+                            <li><a href="/html/articles.html"><i class="fas fa-newspaper"></i>Articles</a></li>
+                            <li><a href="../index.html#assessments"><i class="fas fa-clipboard-check"></i>Assessments</a></li>
+                            <li><a href="../index.html#wellness"><i class="fas fa-gamepad"></i>Games</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="../index.html#psychology-experts"><i class="fas fa-user-md"></i>Our Psychologists</a></li>
+                            <li><a href="../index.html#faq"><i class="fas fa-question-circle"></i>FAQ</a></li>
+                            <li><a href="../index.html#services" class="btn-book"><i class="fas fa-calendar-check"></i>Book a Session</a></li>
+                            <li><a href="#" class="open-chatbot"><i class="fas fa-robot"></i>Chat with SoulCare</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <img src="../img/logo.png" alt="SoulCare Logo">
+                    <p>Your trusted partner in mental wellness.</p>
+                    <p>&copy; 2024 SoulCare - Professional Psychology Services</p>
+                    <p class="credits">Built ❤️ by Amina Yegemberdiyeva, Meerim Sultanova and Medina Matkerimova</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html> 

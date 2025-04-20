@@ -315,6 +315,124 @@
     font-size: 1.4em;
 }
 
+/* Messages Section Styling */
+.messages-section {
+    margin-bottom: 30px;
+}
+
+.messages-container {
+    display: grid;
+    gap: 20px;
+}
+
+.message-card {
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(var(--primary-color-rgb), 0.03));
+    pointer-events: none;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.message-header i {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    animation: pulse 2s infinite;
+}
+
+.message-date {
+    font-size: 0.9em;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.message-content {
+    position: relative;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.message-content p {
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* Animation for the envelope icon */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Message card hover effect */
+.message-card:hover .message-content {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Responsive adjustments for messages */
+@media (max-width: 768px) {
+    .message-card {
+        padding: 20px;
+    }
+
+    .message-content p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .message-card {
+        padding: 15px;
+    }
+
+    .message-content {
+        padding: 15px;
+    }
+
+    .message-header i {
+        font-size: 1.2em;
+    }
+}
+
 @media (max-width: 768px) {
     .dashboard-grid {
         grid-template-columns: 1fr;
@@ -354,5 +472,161 @@
 @media (max-width: 480px) {
     .mood-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Update button styling */
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: #000; /* Changed from white/var(--white) to black */
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Add consistent section spacing */
+#overview-section,
+#sessions-section,
+#progress-section,
+#resources-section,
+#messages-section {
+    margin-top: 40px; /* Consistent top margin for all main sections */
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle divider between sections */
+}
+
+/* Add spacing for subsections within overview */
+.user-details,
+.mood-section,
+.quick-stats,
+.upcoming-sessions,
+.progress-section,
+.resources-section {
+    margin-top: 30px;
+}
+
+/* First section and first subsection shouldn't have the top margin */
+#overview-section,
+#overview-section > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* Adjust spacing for section headers */
+section > h2 {
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #overview-section,
+    #sessions-section,
+    #progress-section,
+    #resources-section,
+    #messages-section {
+        margin-top: 30px;
+        padding-top: 15px;
+    }
+
+    .user-details,
+    .mood-section,
+    .quick-stats,
+    .upcoming-sessions,
+    .progress-section,
+    .resources-section {
+        margin-top: 25px;
+    }
+
+    section > h2 {
+        margin-bottom: 20px;
+        font-size: 1.6em;
+    }
+}
+
+/* Enhanced Logout Button Styling with Green Theme */
+#logout-btn {
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+#logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#logout-btn:hover::before {
+    left: 100%;
+}
+
+#logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.25);
+    background: linear-gradient(to right, #27ae60, #219a52);
+}
+
+#logout-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(46, 204, 113, 0.15);
+}
+
+#logout-btn i {
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+}
+
+#logout-btn:hover i {
+    transform: translateX(3px);
+}
+
+/* Animation for button appearance */
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#logout-btn {
+    animation: fadeInButton 0.5s ease forwards;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    #logout-btn {
+        margin: 10px 15px;
+        justify-content: center;
+        padding: 12px 20px;
     }
 } 

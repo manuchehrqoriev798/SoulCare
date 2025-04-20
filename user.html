@@ -46,15 +46,33 @@
     </script>
 </head>
 <body>
-    <header>
+    <header class="fixed-header">
         <nav class="container">
-            <a href="index.html" class="logo"><img src="img/logo.png" alt="SoulCare Logo" class="logo-img">SoulCare</a>
+            <a href="#" class="logo">
+                <img src="/img/logo.png" alt="SoulCare Logo" class="logo-img">
+                SoulCare
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#sessions">Sessions</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#" id="logout-btn" class="btn btn-outline">Logout</a></li>
+                <li><a href="#" id="home-link" class="nav-home-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="videos.html"><i class="fas fa-play-circle"></i> Videos</a></li>
+                        <li><a href="books.html"><i class="fas fa-book"></i> Books</a></li>
+                        <li><a href="articles.html"><i class="fas fa-newspaper"></i> Articles</a></li>
+                    </ul>
+                </li>
+                <li><a href="#assessments">Assessments</a></li>
+                <li><a href="#psychology-experts">Our Psychologists</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#wellness">Games</a></li>
+                <li><a href="../index.html#services" class="btn btn-primary">Book a Session <i class="fas fa-arrow-right"></i></a></li>
+                <li>
+                    <a href="#" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -73,125 +91,194 @@
                         <h3 id="user-name">Loading...</h3>
                     </div>
                     <ul class="sidebar-menu">
-                        <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
-                        <li><a href="#sessions"><i class="fas fa-calendar"></i> My Sessions</a></li>
-                        <li><a href="#progress"><i class="fas fa-chart-line"></i> Progress</a></li>
-                        <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
-                        <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
-                        <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                        <li><a href="#overview-section" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                        <li><a href="#sessions-section"><i class="fas fa-calendar"></i> My Sessions</a></li>
+                        <li><a href="#progress-section"><i class="fas fa-chart-line"></i> Progress</a></li>
+                        <li><a href="#resources-section"><i class="fas fa-book"></i> Resources</a></li>
+                        <li><a href="#messages-section"><i class="fas fa-envelope"></i> Messages</a></li>
                     </ul>
                 </aside>
 
                 <div class="main-content">
-                    <div class="dashboard-header">
-                        <div class="welcome-message">
-                            <h1>Welcome back, <span id="welcome-name">User</span>!</h1>
-                            <p>Here's your wellness journey overview</p>
+                    <section id="overview-section">
+                        <div class="dashboard-header">
+                            <div class="welcome-message">
+                                <h1>Welcome back, <span id="welcome-name">User</span>!</h1>
+                                <p>Here's your wellness journey overview</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="user-details">
-                        <h3>Your Profile Information</h3>
-                        <p><strong>Name:</strong> <span id="profile-name">Loading...</span></p>
-                        <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
-                        <p><strong>Age:</strong> <span id="profile-age">Loading...</span></p>
-                        <p><strong>Experience:</strong> <span id="profile-experience">Loading...</span></p>
-                        <button id="edit-profile-btn" class="btn btn-primary">Edit Profile</button>
-                        
-                        <!-- Edit Profile Form (Initially Hidden) -->
-                        <form id="edit-profile-form" style="display: none; margin-top: 20px;">
-                            <div style="margin-bottom: 15px;">
-                                <label for="edit-name">Name:</label>
-                                <input type="text" id="edit-name" required style="width: 100%; padding: 8px; margin-top: 5px;">
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label for="edit-age">Age:</label>
-                                <input type="number" id="edit-age" required style="width: 100%; padding: 8px; margin-top: 5px;">
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label for="edit-experience">Experience:</label>
-                                <input type="text" id="edit-experience" required style="width: 100%; padding: 8px; margin-top: 5px;">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                            <button type="button" id="cancel-edit" class="btn btn-outline">Cancel</button>
-                        </form>
-                    </div>
+                        <div class="user-details">
+                            <h3>Your Profile Information</h3>
+                            <p><strong>Name:</strong> <span id="profile-name">Loading...</span></p>
+                            <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+                            <p><strong>Age:</strong> <span id="profile-age">Loading...</span></p>
+                            <p><strong>Experience:</strong> <span id="profile-experience">Loading...</span></p>
+                            <button id="edit-profile-btn" class="btn btn-primary">Edit Profile</button>
+                            
+                            <!-- Edit Profile Form (Initially Hidden) -->
+                            <form id="edit-profile-form" style="display: none; margin-top: 20px;">
+                                <div style="margin-bottom: 15px;">
+                                    <label for="edit-name">Name:</label>
+                                    <input type="text" id="edit-name" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label for="edit-age">Age:</label>
+                                    <input type="number" id="edit-age" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label for="edit-experience">Experience:</label>
+                                    <input type="text" id="edit-experience" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <button type="button" id="cancel-edit" class="btn btn-outline">Cancel</button>
+                            </form>
+                        </div>
 
-                    <!-- Mood Selection Section -->
-                    <div class="mood-section">
-                        <h3>How are you feeling today?</h3>
-                        <div class="mood-container">
-                            <div class="mood-selection">
-                                <div class="mood-grid">
-                                    <div class="mood-item" data-mood="Happy">
-                                        <img src="img/mood/happy.png" alt="Happy">
-                                        <span>Happy</span>
+                        <!-- Mood Selection Section -->
+                        <div class="mood-section">
+                            <h3>How are you feeling today?</h3>
+                            <div class="mood-container">
+                                <div class="mood-selection">
+                                    <div class="mood-grid">
+                                        <div class="mood-item" data-mood="Happy">
+                                            <img src="img/mood/happy.png" alt="Happy">
+                                            <span>Happy</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Middle">
+                                            <img src="img/mood/middle.png" alt="Middle">
+                                            <span>Middle</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Anxiety">
+                                            <img src="img/mood/anxiety.png" alt="Anxiety">
+                                            <span>Anxiety</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Sad">
+                                            <img src="img/mood/sad.png" alt="Sad">
+                                            <span>Sad</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Big Sad">
+                                            <img src="img/mood/big-sad.png" alt="Big Sad">
+                                            <span>Big Sad</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Big Anger">
+                                            <img src="img/mood/big-anger.png" alt="Big Anger">
+                                            <span>Big Anger</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Oh">
+                                            <img src="img/mood/oh.png" alt="Oh">
+                                            <span>Oh</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Silly">
+                                            <img src="img/mood/silly.png" alt="Silly">
+                                            <span>Silly</span>
+                                        </div>
+                                        <div class="mood-item" data-mood="Idk">
+                                            <img src="img/mood/idk.png" alt="Idk">
+                                            <span>Idk</span>
+                                        </div>
                                     </div>
-                                    <div class="mood-item" data-mood="Middle">
-                                        <img src="img/mood/middle.png" alt="Middle">
-                                        <span>Middle</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Anxiety">
-                                        <img src="img/mood/anxiety.png" alt="Anxiety">
-                                        <span>Anxiety</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Sad">
-                                        <img src="img/mood/sad.png" alt="Sad">
-                                        <span>Sad</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Big Sad">
-                                        <img src="img/mood/big-sad.png" alt="Big Sad">
-                                        <span>Big Sad</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Big Anger">
-                                        <img src="img/mood/big-anger.png" alt="Big Anger">
-                                        <span>Big Anger</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Oh">
-                                        <img src="img/mood/oh.png" alt="Oh">
-                                        <span>Oh</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Silly">
-                                        <img src="img/mood/silly.png" alt="Silly">
-                                        <span>Silly</span>
-                                    </div>
-                                    <div class="mood-item" data-mood="Idk">
-                                        <img src="img/mood/idk.png" alt="Idk">
-                                        <span>Idk</span>
+                                </div>
+                                <div class="current-mood-display">
+                                    <h3>Current Mood</h3>
+                                    <div class="current-mood-content">
+                                        <img id="current-mood-img" src="img/mood/happy.png" alt="Current Mood" style="display: none;">
+                                        <p id="current-mood">Not selected</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="current-mood-display">
-                                <h3>Current Mood</h3>
-                                <div class="current-mood-content">
-                                    <img id="current-mood-img" src="img/mood/happy.png" alt="Current Mood" style="display: none;">
-                                    <p id="current-mood">Not selected</p>
-                                </div>
+                        </div>
+
+                        <div class="quick-stats">
+                            <div class="stat-card">
+                                <h3>5</h3>
+                                <p>Sessions Completed</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>2</h3>
+                                <p>Upcoming Sessions</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>3</h3>
+                                <p>Goals Achieved</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>80%</h3>
+                                <p>Progress</p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="quick-stats">
-                        <div class="stat-card">
-                            <h3>5</h3>
-                            <p>Sessions Completed</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3>2</h3>
-                            <p>Upcoming Sessions</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3>3</h3>
-                            <p>Goals Achieved</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3>80%</h3>
-                            <p>Progress</p>
-                        </div>
-                    </div>
+                        <section class="upcoming-sessions">
+                            <h2>Upcoming Sessions</h2>
+                            <div class="session-card">
+                                <div class="session-info">
+                                    <h3>Stress Management</h3>
+                                    <p class="session-time">Tomorrow, 2:00 PM</p>
+                                </div>
+                                <div class="session-actions">
+                                    <button class="btn btn-primary">Join</button>
+                                    <button class="btn btn-outline">Reschedule</button>
+                                </div>
+                            </div>
+                            <div class="session-card">
+                                <div class="session-info">
+                                    <h3>Anxiety Relief</h3>
+                                    <p class="session-time">Friday, 11:00 AM</p>
+                                </div>
+                                <div class="session-actions">
+                                    <button class="btn btn-primary">Join</button>
+                                    <button class="btn btn-outline">Reschedule</button>
+                                </div>
+                            </div>
+                        </section>
 
-                    <section class="upcoming-sessions">
-                        <h2>Upcoming Sessions</h2>
+                        <section class="progress-section">
+                            <h2>Your Progress</h2>
+                            <div class="progress-item">
+                                <h3>Stress Management</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <p>75% Complete</p>
+                            </div>
+                            <div class="progress-item">
+                                <h3>Anxiety Relief</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <p>60% Complete</p>
+                            </div>
+                        </section>
+
+                        <section class="resources-section">
+                            <h2>Recommended Resources</h2>
+                            <div class="resources-grid">
+                                <div class="resource-card">
+                                    <h3>Meditation Guide</h3>
+                                    <p>Learn basic meditation techniques for stress relief</p>
+                                    <a href="#" class="btn btn-primary">Start Learning</a>
+                                </div>
+                                <div class="resource-card">
+                                    <h3>Sleep Better</h3>
+                                    <p>Tips and techniques for better sleep quality</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                </div>
+                                <div class="resource-card">
+                                    <h3>Mindfulness Exercises</h3>
+                                    <p>Daily exercises to improve mindfulness</p>
+                                    <a href="#" class="btn btn-primary">Try Now</a>
+                                </div>
+                                <div class="resource-card">
+                                    <h3>Stress Relief Techniques</h3>
+                                    <p>Practical methods to manage daily stress and anxiety</p>
+                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+
+                    <section id="sessions-section" class="upcoming-sessions">
+                        <h2>My Sessions</h2>
                         <div class="session-card">
                             <div class="session-info">
                                 <h3>Stress Management</h3>
@@ -214,7 +301,7 @@
                         </div>
                     </section>
 
-                    <section class="progress-section">
+                    <section id="progress-section" class="progress-section">
                         <h2>Your Progress</h2>
                         <div class="progress-item">
                             <h3>Stress Management</h3>
@@ -232,8 +319,8 @@
                         </div>
                     </section>
 
-                    <section class="resources-section">
-                        <h2>Recommended Resources</h2>
+                    <section id="resources-section" class="resources-section">
+                        <h2>Resources</h2>
                         <div class="resources-grid">
                             <div class="resource-card">
                                 <h3>Meditation Guide</h3>
@@ -250,11 +337,71 @@
                                 <p>Daily exercises to improve mindfulness</p>
                                 <a href="#" class="btn btn-primary">Try Now</a>
                             </div>
+                            <div class="resource-card">
+                                <h3>Stress Relief Techniques</h3>
+                                <p>Practical methods to manage daily stress and anxiety</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="messages-section" class="messages-section">
+                        <h2>Messages</h2>
+                        <div class="messages-container">
+                            <div class="message-card">
+                                <div class="message-header">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                    <span class="message-date">Just now</span>
+                                </div>
+                                <div class="message-content">
+                                    <p id="daily-message">Loading your daily message...</p>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <h4>Resources</h4>
+                            <ul>
+                                <li><a href="/html/videos.html"><i class="fas fa-play-circle"></i>Videos</a></li>
+                                <li><a href="/html/books.html"><i class="fas fa-book"></i>Books</a></li>
+                                <li><a href="/html/articles.html"><i class="fas fa-newspaper"></i>Articles</a></li>
+                                <li><a href="../index.html#assessments"><i class="fas fa-clipboard-check"></i>Assessments</a></li>
+                                <li><a href="../index.html#wellness"><i class="fas fa-gamepad"></i>Games</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="../index.html#psychology-experts"><i class="fas fa-user-md"></i>Our Psychologists</a></li>
+                                <li><a href="../index.html#faq"><i class="fas fa-question-circle"></i>FAQ</a></li>
+                                <li><a href="../index.html#services" class="btn-book"><i class="fas fa-calendar-check"></i>Book a Session</a></li>
+                                <li><a href="#" class="open-chatbot"><i class="fas fa-robot"></i>Chat with SoulCare</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <img src="../img/logo.png" alt="SoulCare Logo">
+                        <p>Your trusted partner in mental wellness.</p>
+                        <p>&copy; 2024 SoulCare - Professional Psychology Services</p>
+                        <p class="credits">Built ❤️ by Amina Yegemberdiyeva, Meerim Sultanova and Medina Matkerimova</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <!-- Firebase Scripts -->
@@ -285,7 +432,8 @@
                 navLinks: document.querySelector('.nav-links'),
                 currentMood: document.getElementById('current-mood'),
                 currentMoodImg: document.getElementById('current-mood-img'),
-                moodItems: document.querySelectorAll('.mood-item')
+                moodItems: document.querySelectorAll('.mood-item'),
+                homeLink: document.getElementById('home-link')
             };
 
             // Mobile menu toggle
@@ -475,17 +623,27 @@
                 }
             });
 
-            // Event Listeners
-            if (elements.logoutBtn) {
-                elements.logoutBtn.addEventListener('click', function() {
-                    logOut().then(() => {
-                        window.location.href = 'index.html';
-                    }).catch((error) => {
-                        console.error('Error signing out:', error);
-                    });
-                });
+            // Function to handle logout and redirect
+            async function handleLogoutAndRedirect(e) {
+                e.preventDefault();
+                try {
+                    await logOut();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Error signing out:', error);
+                }
             }
 
+            // Add event listeners for both home and logout
+            if (elements.homeLink) {
+                elements.homeLink.addEventListener('click', handleLogoutAndRedirect);
+            }
+
+            if (elements.logoutBtn) {
+                elements.logoutBtn.addEventListener('click', handleLogoutAndRedirect);
+            }
+
+            // Event Listeners
             if (elements.editProfileBtn && elements.editProfileForm) {
                 elements.editProfileBtn.addEventListener('click', function() {
                     elements.editProfileForm.style.display = 'block';
@@ -543,7 +701,123 @@
                     }
                 });
             }
+
+            // Add smooth scrolling to sidebar links
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    document.querySelectorAll('.sidebar-menu a').forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Account for fixed header offset
+                        const headerOffset = 80;
+                        const elementPosition = targetSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const positiveMessages = [
+                "You are doing amazing! Keep going! 🌟",
+                "Your strength is inspiring! 💪",
+                "Today is your day to shine! ✨",
+                "You are capable of incredible things! 🌈",
+                "Your potential is limitless! 🚀",
+                "You make the world a better place! 🌍",
+                "Your smile brightens everyone's day! 😊",
+                "You are stronger than you know! 💫",
+                "Keep being your awesome self! ⭐",
+                "You are making progress every day! 🌱",
+                "Your journey matters! 🗺️",
+                "You bring joy to others! 🎉",
+                "Your presence makes a difference! 🌟",
+                "You are valued and appreciated! 💝",
+                "Your kindness changes lives! 🤗"
+            ];
+
+            function getRandomMessage() {
+                const randomIndex = Math.floor(Math.random() * positiveMessages.length);
+                return positiveMessages[randomIndex];
+            }
+
+            // Update the message when the page loads
+            const dailyMessage = document.getElementById('daily-message');
+            if (dailyMessage) {
+                dailyMessage.textContent = getRandomMessage();
+            }
+
+            // Add some CSS styles for the message card
+            const style = document.createElement('style');
+            style.textContent = `
+                .message-card {
+                    background: #ffffff;
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin: 20px 0;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                }
+
+                .message-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    color: #666;
+                }
+
+                .message-content {
+                    font-size: 1.2em;
+                    color: #333;
+                    text-align: center;
+                    padding: 20px;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                }
+
+                .message-date {
+                    font-size: 0.9em;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+
+    <!-- Add some CSS to style the home link -->
+    <style>
+        .nav-home-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-home-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-home-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-home-link:hover i {
+            transform: translateX(-3px);
+        }
+    </style>
 </body>
 </html> 
